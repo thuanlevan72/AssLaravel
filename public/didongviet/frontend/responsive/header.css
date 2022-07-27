@@ -1,0 +1,115 @@
+@media (max-width: 500px) {
+    header {
+      width: 100%;
+      height: auto;
+    }
+    header .top-header {
+      width: 100%;
+      height: auto;
+    }
+    header .top-header img {
+      height: auto;
+    }
+    header .main-header {
+      width: 100%;
+      height: auto;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr;
+    }
+    header .main-header .logo {
+      width: 100%;
+      height: auto;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 3;
+      grid-column: 1/4;
+    }
+    header .main-header .logo img {
+      width: 40%;
+      margin: 20px 30% 0 30%;
+    }
+    header .main-header .input_search {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 3;
+      grid-column: 1/4;
+      width: 100%;
+      height: auto;
+    }
+    header .main-header .input_search form {
+      width: 70%;
+      margin: 20px 15% 0 15%;
+    }
+    header .main-header .input_search form input {
+      height: 20px;
+    }
+    header .main-header .input_search form button {
+      height: 20px;
+    }
+    header .main-header .div-text {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 3;
+      grid-column: 1/4;
+      width: 100%;
+    }
+    header .main-header .div-text .div-1 {
+      margin: 10% 0;
+    }
+    header .main-header .div-text .div-1 p {
+      font-size: 13px;
+    }
+    header .main-header .div-text .div-2 {
+      margin: 10% 0;
+    }
+    header .main-header .div-text .div-2 p {
+      font-size: 13px;
+    }
+    header .bottom-header {
+      width: 100%;
+      height: 60px;
+      position: relative;
+    }
+    header .bottom-header .icon-bar {
+      display: block;
+    }
+    header .bottom-header .icon-bar i {
+      font-size: 160%;
+      line-height: 60px;
+      margin: 0 10px;
+    }
+    header .bottom-header .nav {
+      position: absolute;
+      top: 60px;
+      left: -100%;
+      width: 100%;
+      margin: 0;
+      background-color: #f8e1e1;
+      height: auto;
+      z-index: 1;
+      -webkit-transition: 0.75s;
+      transition: 0.75s;
+    }
+    header .bottom-header .nav li {
+      width: 100%;
+      height: 60px;
+      margin: 0;
+      line-height: 60px;
+      text-align: center;
+    }
+    header .bottom-header .nav li a {
+      padding-left: 0;
+    }
+    header .bottom-header .nav.active {
+      left: 0;
+    }
+    header .bottom-header .cart {
+      width: 100px;
+      height: 50px;
+      margin: -5px 30px;
+    }
+    header .bottom-header .cart button {
+      width: 120px;
+      font-size: 12px;
+    }
+  }
+  /*# sourceMappingURL=header_responsive.css.map */

@@ -1,0 +1,193 @@
+.top-user {
+    width: 95%;
+    height: 80px;
+    margin: 2% 2.5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.top-user .heading-text {
+    width: 100%;
+}
+
+.top-user .heading-text p {
+    font-size: 22px;
+    line-height: 80px;
+    font-weight: bold;
+    padding: 0 20px;
+}
+
+.top-user .input-search {
+    width: 100%;
+}
+
+.top-user .input-search form {
+    width: 40%;
+    height: 40px;
+    margin: 20px 10% 20px 40%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.top-user .input-search form .form-group {
+    width: 100%;
+}
+
+.top-user .input-search form .form-group input {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border: 1px solid #eee;
+    border-radius: 10px 0 0 10px;
+}
+
+.top-user .input-search form button {
+    border-left: none;
+    border: 1px solid #eee;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.middle-user {
+    width: 100%;
+    /* margin: 0 2.5%; */
+    background-color: #fff;
+    padding: 30px 0;
+}
+
+table {
+    border-collapse: collapse;
+    width: 95%;
+    margin: 0 2.5%;
+}
+
+table {
+    border-spacing: 10px;
+}
+
+table,
+th,
+td {
+    border: 1px solid black;
+}
+
+th,
+td {
+    padding: 15px 15px 15px 15px;
+    border: 1px solid #dee2e6;
+}
+
+td img {
+    width: 70px;
+    margin-left: 5px;
+}
+
+th {
+    text-align: left;
+    vertical-align: bottom;
+    font-weight: bold;
+}
+
+thead tr {
+    background-color: #fff;
+    height: 40px;
+    line-height: 40px;
+}
+
+tbody tr:nth-last-child(odd) {
+    background-color: #f2f2f2;
+}
+
+tr .qt {
+    width: 80%;
+    text-align: center;
+    margin: 0 10%;
+    border: 1px solid #eee;
+    padding: 5px 0;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+    background-color: rgb(87, 187, 245);
+}
+
+.cn button {
+    width: 45%;
+    margin: 0 2.5%;
+    padding: 5px 0;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+}
+
+td button {
+    width: 100%;
+    border-radius: 10px;
+    padding: 5px 0;
+    border: none;
+    font-weight: bold;
+    color: #333;
+    background-color: rgb(56, 210, 248);
+}
+
+.cn .update {
+    color: #fff;
+    background-color: rgb(113, 247, 80);
+}
+
+.cn .delete {
+    color: #fff;
+    background-color: rgb(255, 0, 0);
+}
+
+.add-user {
+    width: 95%;
+    margin: 0 2.5%;
+    padding: 10px 0 20px 0;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+}
+
+.add-user button {
+    width: 40%;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    color: #333;
+    background-color: rgb(56, 210, 248);
+}
+
+.tk_type {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.tk_type .form-group {
+    width: 100%;
+}
+
+.tk_type .form-group label {
+    width: 40%;
+    font-weight: bold;
+    color: #333;
+}
+
+.tk_type .form-group select {
+    width: 45%;
+    margin-left: 2%;
+    height: 30px;
+    border: none;
+    font-weight: bold;
+    border-bottom: 1px solid #333;
+    text-align: center;
+}
+
+.tk_type .form-group select option {
+    height: 30px;
+}
+
+.tk_type button {
+    width: 100%;
+}

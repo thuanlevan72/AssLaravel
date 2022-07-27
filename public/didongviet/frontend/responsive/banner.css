@@ -1,0 +1,71 @@
+@media (max-width: 500px) {
+    .banner {
+      width: 100%;
+      height: auto;
+      display: -ms-grid;
+      display: grid;
+      margin-bottom: 0;
+      -ms-grid-columns: 1fr 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+      row-gap: 2%;
+    }
+    .banner .nav {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 4;
+      grid-column: 1/5;
+      width: 80%;
+      margin: 0 10%;
+      display: none;
+    }
+    .banner .nav li {
+      height: 50px;
+      font-size: 14px;
+    }
+    .banner .nav li a {
+      font-size: 17px;
+    }
+    .banner .slide {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 4;
+      grid-column: 1/5;
+      width: 90%;
+      height: 220px;
+      margin: 0 5%;
+    }
+    .banner .slide .slideshow-container {
+      height: 300px;
+    }
+    .banner .slide .slideshow-container .mySlides {
+      height: 220px;
+    }
+    .banner .slide .slideshow-container img {
+      width: 100%;
+      height: 220px;
+    }
+    .banner .slide .dot-cc {
+      bottom: 10px;
+      left: 140px;
+    }
+    .banner .slide .dot-cc .dot {
+      width: 10px;
+      height: 10px;
+    }
+    .banner .banner-2 {
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 4;
+      grid-column: 1/5;
+      height: 375px;
+      width: 90%;
+      margin: 0 5%;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr 1fr;
+          grid-template-columns: 1fr 1fr;
+      -ms-grid-rows: 160px 160px;
+          grid-template-rows: 160px 160px;
+    }
+    .banner .banner-2 img {
+      height: auto;
+    }
+  }
+  /*# sourceMappingURL=banner_resposive.css.map */

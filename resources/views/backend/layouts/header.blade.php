@@ -9,6 +9,16 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{asset('didongviet/backend/reset.css')}}">
     <link rel="stylesheet" href ="{{asset('didongviet/backend/layout.css')}}">
+    <style>
+        .text-center .justify-between .hidden{
+            display: none !important;
+        }
+        .text-center .flex {
+            text-align: center;
+           padding: 10px 0 0 0;
+           background-color:#fff;
+        }
+    </style>
 </head>
 
 <body>

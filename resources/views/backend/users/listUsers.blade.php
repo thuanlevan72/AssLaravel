@@ -2,7 +2,9 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('didongviet/backend/tablecss/tablde.css')}}">
 <main>
-
+    @php
+    $objUser = \Illuminate\Support\Facades\Auth::user();
+    @endphp
 <main>
     <div class="top-user">
         <div class="heading-text">
@@ -34,30 +36,31 @@
                 <th>STT</th>
                 <th>User name</th>
                 <th>Email</th>
-                <th>Ngày tạo</th>
+                <th>phone</th>
                 <th>Phân quyền</th>
                 <th>chức năng</th>
                 <th>chi tiết</th>
             </tr>
            </thead>
             <tbody>
-               
+              @foreach($list as $item) 
             <tr>
-                <td>1</td>
-                <td>lê văn thuận <img src="{{asset('image/image_user/z2660707530992_6efedaa9aa39bb2a027ceec0def08ce7.jpg')}}" width="30px" height="30px" alt=""></td>
-                <td>levanthuan@gmail.com</td>
-                <td>{{ date("Y-m-d")}}</td>
-                <td><p class="qt">admin</p></td>
-                <td class="cn"><a href="./update_user.php?id="><button class="update">Sửa</button></a><a><button onclick="delete_user()" class="delete">Xóa</button></a></td>
+                <td>{{$loop->index + 1}}</td>
+                <td>{{$item->name}} <img src="../image/image_user/{{$item->imageUser}}" width="30px" height="30px" alt=""></td>
+                <td>{{$item->email}}</td>
+                <td>{{$item->phone }}</td>
+                <td><p class="@if($item->level == 1) qt @endif">@if($item->level == 1) admin @endif</p></td>
+                <td class="cn"><a href="{{ route('resUpdate', ['id' => $item->id]) }}"><button class="update">Sửa</button></a><a><button onclick="delete_user()" class="delete">Xóa</button></a></td>
                 <td><a href="./ct_user.php?id="><button class="ct">Xem Ngay</button></a></td>
             </tr>
-            
-            
+            @endforeach
+        </tbody>
+            @if(count($list) <= 0)
             <tr>
                 <td colspan="4">không có dữ liệu nào tồn tại</td>
                 <td colspan="3"><a href="./user.php"><button>reset</button></a></td>
             </tr>
-       
+       @endif
             </tbody>
             <tfoot>
                 <!-- <tr>
@@ -65,6 +68,10 @@
                 </tr> -->
             </tfoot>
         </table>
+        <div class="text-center">
+            {{$list->appends($extParams)->links()}}
+        </div>
+
     </div>
 </main>
 @endsection

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\userController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 // đây là router admin
-Route::get('/admin', function () {
-    return view('backend.users.listUsers');
-})->name('user');
-Route::get('/admin/register', function () {
-    return view('backend.users.addUser');
-})->name('dangky');
+Route::get('/admin',[userController::class, 'showUser'])->name('user');
+Route::get('/admin/register', [userController::class, 'index'])->name('dangky');
+Route::post('/admin/register', [userController::class, 'registerUser'])->name('resdangky');
+Route::get('/admin/update/{id}',[userController::class, 'UpdateUser'])->name('resUpdate');
+
 Route::get('/admin/product', function () {
     return view('backend.products.product');
 })->name('product');

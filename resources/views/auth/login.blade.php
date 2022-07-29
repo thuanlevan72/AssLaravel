@@ -95,12 +95,14 @@ input:focus::-webkit-input-placeholder {
   color: #e74c3c;
 }
 
-    </style>
+</style>
 </head>
 <body> 
-<p style="color: #fff;"></p>
-<form action="" method="POST">
- 
+  @if ( Session::has('error') )
+  <p style="color: #fff;">{{ Session::get('error') }}</p>
+  @endif
+<form action="{{route('checkLogin')}}" method="POST">
+  @csrf
   <h2><span class="entypo-login"><i class="fa fa-sign-in"></i></span> Login</h2>
   <button class="submit" name="login" type="submit"><span class="entypo-lock"><i class="fa fa-lock"></i></span></button>
   <span class="entypo-user inputUserIcon">

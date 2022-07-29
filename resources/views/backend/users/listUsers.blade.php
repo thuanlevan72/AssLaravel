@@ -1,10 +1,14 @@
 @extends('backend.layouts.layout')
 @section('content')
 <link rel="stylesheet" href="{{asset('didongviet/backend/tablecss/tablde.css')}}">
-<main>
-    @php
-    $objUser = \Illuminate\Support\Facades\Auth::user();
-    @endphp
+<style>
+    nav ul .cha6 .cha1{
+        color: #3bc0c3;
+        background-color: #eee;
+        -webkit-transition: 1.5s;
+        transition: 0.5s;
+    }
+</style>
 <main>
     <div class="top-user">
         <div class="heading-text">
@@ -50,7 +54,7 @@
                 <td>{{$item->email}}</td>
                 <td>{{$item->phone }}</td>
                 <td><p class="@if($item->level == 1) qt @endif">@if($item->level == 1) admin @endif</p></td>
-                <td class="cn"><a href="{{ route('resUpdate', ['id' => $item->id]) }}"><button class="update">Sửa</button></a><a><button onclick="delete_user()" class="delete">Xóa</button></a></td>
+                <td class="cn"><a href="{{ route('resUpdate', ['id' => $item->id]) }}"><button class="update">Sửa</button></a><a href="{{ route('delUser', ['id'=> $item->id]) }}" onclick="return confirm('bạn có chắc muốn xóa khống')"><button class="delete">Xóa</button></a></td>
                 <td><a href="./ct_user.php?id="><button class="ct">Xem Ngay</button></a></td>
             </tr>
             @endforeach

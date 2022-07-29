@@ -1,4 +1,6 @@
-
+@php
+$objUser = \Illuminate\Support\Facades\Auth::user();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,20 +21,45 @@
            background-color:#fff;
         }
     </style>
+    <style>
+        label,
+    textarea {
+        font-size: .8rem;
+        letter-spacing: 1px;
+    }
+    textarea {
+        padding: 10px;
+        height: 80px;
+        max-width: 100%;
+        line-height: 1.5;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px #999;
+    }
+    
+    label {
+        display: block;
+        color: #333;
+        margin-bottom: 10px;
+    }
+    button {
+        color: #333;
+    }
+    </style>
 </head>
 
 <body>
 
     <header>
         <div class="image" style="margin-right: 20px">
-            <a href="#"><img src="{{asset('image/image_user/z2660707530992_6efedaa9aa39bb2a027ceec0def08ce7.jpg')}}" alt=""></a>
+            <a href="#"><img src="{{asset('image/image_user/')}}/{{$objUser->imageUser}}" alt=""></a>
             
         </div>
         <div class="name-admin">
-            <p>lê văn thuận</p>
+            <p>{{$objUser->name}}</p>
         </div>
         <div class="icon-logout">
-            <a href="?logout=out"><i class="fas fa-power-off"></i></a>
+            <a href="{{route('logout')}}"><i class="fas fa-power-off"></i></a>
         </div>
        
     </header>

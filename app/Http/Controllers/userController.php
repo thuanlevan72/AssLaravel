@@ -34,4 +34,9 @@ class userController extends Controller
         $modelTest->createUser($request);
         return redirect(route('user'));
     }
+    public function deleteUser($id){
+        $modeldle = User1::find($id);
+        $modeldle->delete();
+        return redirect(route('user'));
+    }   
 }

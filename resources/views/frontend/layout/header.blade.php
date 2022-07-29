@@ -1,3 +1,8 @@
+@php
+$objUser = \Illuminate\Support\Facades\Auth::user();
+
+@endphp
+ 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +54,7 @@
                 <p><i class="fas fa-phone"></i>&nbsp;&nbsp;Liên Hệ: 0352988596</p>
                 </div>
                 <div class="div-2">
-                 <a href="taikhoang"><p style="text-align: center;">&nbsp;{{--<img style="width: 30px; height: 30px; border: 0.5px solid #ddd;" src="../image/image_user/" alt="">--}}<i class="fas fa-user-circle"></i>&nbsp;&nbsp; Đăng Nhập / Đăng Ký</p></a> 
+                 <a href="taikhoang"><p style="text-align: center;">&nbsp;@if($objUser)<img style="width: 30px; height: 30px; border: 0.5px solid #ddd;" src="../image/image_user/{{$objUser->imageUser}}" alt="">&nbsp;&nbsp;<a href=""> {{$objUser->name}}</a> @else <i class="fas fa-user-circle"></i>&nbsp;&nbsp; <a href="{{route('loginFront')}}">Đăng Nhập / Đăng Ký</a>  @endif</p></a> 
                 
                 </div>
             </div>
@@ -64,16 +69,16 @@
                 }
             </style>
             <ul class="nav">
-                <li class="nav-cc"><a href="home">Trang chủ</a></li>
+                <li class="nav-cc"><a href="{{route('home')}}">Trang chủ</a></li>
                 <li class="nav-sp"><a href="sanpham">sản phẩm</a></li>
                 <li class="nav-lsp"><a href="loai_san_pham">loại sản phẩm</a></li>
                 <li class="nav-tt"><a href="tintuc">tin tức</a></li>
                 <li class="nav-lh"><a href="lienhe">liên hệ</a></li>
-                <?php if(isset($_SESSION['lever'])){
-                    if($_SESSION['lever'] == "admin"){ 
-                ?>
-                 <li><a href="../html_admin/admin.php">Quản trị</a></li>
-                <?php }}?>
+               @if(isset($objUser))
+               @if($objUser->lever == 0)
+                 <li><a href="{{route('user')}}">Quản trị</a></li>
+               @endif
+               @endif
             </ul>
             <div class="cart">
             <a href="./cart.php"><button>Giỏ hàng<div class="div-3">

@@ -24,7 +24,7 @@ class user1 extends Model
     ];
     public function loadListWithPager($params = []){
         $query = DB::table($this->table)->select($this->fillable);
-        $List = $query->paginate(10);
+        $List = $query->paginate(20);
         return $List;
     } 
     public function createUser($data){

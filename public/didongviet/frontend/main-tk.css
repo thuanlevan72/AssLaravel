@@ -1,0 +1,306 @@
+main {
+    width: 1400px;
+    max-width: 100%;
+    min-height: 450px;
+    margin: auto;
+    margin: 20px auto;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms {
+    width: 55%;
+    height: 360px;
+    color: #4e4d4d
+    /* background-color: #ccc; */
+}
+
+.forms .text-form {
+    width: 100%;
+    height: 30px;
+}
+
+.forms .text-form p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4e4d4d
+}
+
+.forms .note {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    text-align: center;
+    color: #4e4d4d
+}
+
+.forms form {
+    width: 100%;
+    height: 200px;
+}
+
+.forms form .form-group {
+    width: 100%;
+    height: 90px;
+    /* background-color: black; */
+}
+
+.forms form .form-group input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #4e4d4d;
+}
+
+.forms form .form-group input[type="radio"] {
+    width: 15px;
+    height: 15px;
+}
+
+.forms form .form-group input:focus {
+    border: 1px solid rgb(95, 217, 233);
+    background-color: rgb(241, 246, 247);
+    outline: 0.5px solid rgb(95, 217, 233);
+}
+
+.forms form .form-gourp-ipput {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.forms form .form-gourp-ipput button {
+    width: 20%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: #cc2133;
+    color: white;
+    font-size: 18px;
+}
+
+.forms form .form-gourp-ipput p {
+    width: 100%;
+}
+
+.forms form .form-gourp-ipput a {
+    /* display: block; */
+    width: 30%;
+    height: 35px;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(241, 89, 89);
+}
+
+
+/* 
+ */
+
+main-2 {
+    width: 1400px;
+    max-width: 100%;
+    height: 700px;
+    margin: auto;
+    margin: 20px auto;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.forms-2 {
+    width: 55%;
+    height: 600px;
+    color: #4e4d4d
+    /* background-color: #ccc; */
+}
+
+.forms-2 .text-form {
+    width: 100%;
+    height: 30px;
+}
+
+.forms-2 .text-form p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #4e4d4d
+}
+
+.forms-2 .note {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    text-align: center;
+    color: #4e4d4d
+}
+
+.forms-2 form {
+    width: 100%;
+    height: 200px;
+}
+
+.forms-2 form .form-group {
+    width: 100%;
+    height: 90px;
+    /* background-color: black; */
+}
+
+.forms-2 form .form-group input {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    border: 1px solid #4e4d4d;
+}
+
+.forms-2 form .form-group input:focus {
+    border: 1px solid rgb(95, 217, 233);
+    background-color: rgb(241, 246, 247);
+    outline: 0.5px solid rgb(95, 217, 233);
+}
+
+.forms-2 form .form-gourp-ipput {
+    width: 100%;
+    height: 35px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.forms-2 form .form-gourp-ipput button {
+    width: 20%;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: #cc2133;
+    color: white;
+    font-size: 18px;
+}
+
+.forms-2 form .form-gourp-ipput p {
+    width: 100%;
+}
+
+.forms-2 form .form-gourp-ipput a {
+    /* display: block; */
+    width: 30%;
+    height: 35px;
+    line-height: 35px;
+    text-decoration: none;
+    font-size: 14px;
+    color: rgb(241, 89, 89);
+}
+
+.main_tk {
+    width: 1400px;
+    max-width: 100%;
+    min-height: 280px;
+    margin: auto;
+    margin: 20px auto;
+    text-align: left;
+    /* background-color: #fff; */
+    background-color: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+
+.main-taikhoang {
+    width: 100%;
+    min-height: 280px;
+    border-radius: 10px;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 2fr 4fr;
+    row-gap: 20px;
+}
+
+.main-taikhoang .imgae-tk {
+    width: 50px;
+    height: 50px;
+    margin: 15% 35%;
+}
+
+.main-taikhoang .text-tk {
+    width: 100%;
+    height: 50px;
+}
+
+.main-taikhoang .text-tk p {
+    /* line-height: 50px; */
+    margin: 7% 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.main-taikhoang .imgae-tk img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid #828282;
+}
+
+.main-taikhoang table {
+    grid-column: 1/4;
+    width: 80%;
+    height: auto;
+    margin: 0 13% 0 7%;
+}
+
+.main-taikhoang table tr {
+    font-weight: bold;
+    color: rgb(99, 99, 99);
+}
+
+.main-taikhoang table tr button {
+    border: none;
+    width: 100px;
+    background-color: #cc2133;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.main_tk .tk_ct {
+    width: 100%;
+    height: 280px;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.main_tk .tk_ct table {
+    width: 80%;
+    margin: 11% 10%;
+}
+
+.main_tk .tk_ct table tr {
+    height: 40px;
+    font-weight: bold;
+    color: rgb(99, 99, 99);
+}
+
+.main_tk table tr .btn-cc {
+    border: none;
+    width: 150px;
+    background-color: #cc2133;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+}

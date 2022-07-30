@@ -12,17 +12,17 @@
       @csrf
         <div class="form-group">
           <label for="">Tên loại sản phẩm</label>
-          <input type="text" name="name" id="" class="form-control" placeholder="nhập vào tên loại sản phẩm" aria-describedby="helpId" required>
+          <input type="text" name="name" id="" value="{{old('name')}}" class="form-control" placeholder="nhập vào tên loại sản phẩm" aria-describedby="helpId" required>
           <small style="color: red;" id="helpId" class="text-muted">@error('name') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">Tải ảnh loại sản phẩm</label>
-          <input type="file" class="form-control-file" name="image" id="" placeholder="" aria-describedby="fileHelpId" required>
+          <input type="file" class="form-control-file"  name="image" id="" placeholder="" aria-describedby="fileHelpId" required>
           <small style="color: red;" id="helpId" class="text-muted">@error('image') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">Tiêu đề loại sản phẩm</label>
-          <textarea name="title" id="" cols="30" rows="10">tiêu đề mặc định</textarea>
+          <textarea name="title" id="" cols="30"   value="{{old('title')}}" rows="10">tiêu đề mặc định</textarea>
           <small style="color: red;" id="helpId" class="text-muted">@error('name') {{$message}} @enderror</small>
         </div>
         <br>

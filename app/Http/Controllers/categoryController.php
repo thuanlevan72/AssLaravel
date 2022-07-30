@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\categoryRequest;
 use App\Models\category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class categoryController extends Controller
 {
@@ -26,6 +27,11 @@ class categoryController extends Controller
         $objItem = $object->loadOne($id);
         $this->v['objItem'] = $objItem;
         return view('backend.categorys.updateCategory',$this->v);
+    }
+    public function UpdateCategory($id, Request $request){
+        $object = new category();
+        $objItem = $object->updateCategory($id, $request);
+        return redirect(route('category'));
     }
     public function Dlete($id){
         $object =  category::find($id);

@@ -20,27 +20,27 @@
       @csrf
         <div class="form-group">
           <label for="">Tên tài khoảng</label>
-          <input type="text" name="name" id="" class="form-control" placeholder="nhập vào tên tài khoảng" aria-describedby="helpId">
+          <input type="text" name="name" id="" value="{{old('name')}}" class="form-control" placeholder="nhập vào tên tài khoảng" aria-describedby="helpId">
           <small style="color: red;" id="helpId" class="text-muted">@error('name') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">Số điện thoại</label>
-          <input type="text" name="phone" id="" class="form-control" placeholder="nhập vào số điện thoại" aria-describedby="helpId">
+          <input type="text" name="phone" id="" value="{{old('phone')}}" class="form-control" placeholder="nhập vào số điện thoại" aria-describedby="helpId">
           <small style="color: red;" id="helpId" class="text-muted">@error('phone') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">Email</label>
-          <input type="Email" name="email" id="" class="form-control" placeholder="nhập vào tên tài khoảng" aria-describedby="helpId">
+          <input type="Email" name="email" id="" value="{{old('email')}}" class="form-control" placeholder="nhập vào tên tài khoảng" aria-describedby="helpId">
           <small style="color: red;" id="helpId" class="text-muted">@error('email') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">Password</label>
-          <input type="Password" name="password" id="" class="form-control" placeholder="nhập vào tên tài khoảng" aria-describedby="helpId">
+          <input type="Password" name="password" id="" value="{{old('password')}}" class="form-control" placeholder="nhập vào tên tài khoảng" aria-describedby="helpId">
           <small style="color: red;" id="helpId" class="text-muted">@error('password') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">Tải ảnh đại diện</label>
-          <input type="file" class="form-control-file" name="image" id="" placeholder="" aria-describedby="fileHelpId">
+          <input type="file" class="form-control-file"  name="image" id="" placeholder="" aria-describedby="fileHelpId">
           <small style="color: red;" id="helpId" class="text-muted">@error('image') {{$message}} @enderror</small>
         </div>
         <div class="form-group">

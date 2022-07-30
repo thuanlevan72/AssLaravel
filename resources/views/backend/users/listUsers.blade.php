@@ -73,7 +73,7 @@
             </tfoot>
         </table>
         <div class="text-center">
-            {{$list->appends($extParams)->links()}}
+            {{ $list->links() }}
         </div>
 
     </div>

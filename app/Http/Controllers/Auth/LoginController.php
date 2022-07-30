@@ -31,10 +31,10 @@ class LoginController extends Controller
            
             $email = $request->input('email');
             $password = $request->input('password');
-            if(Auth::attempt(['email'=>$email,'password'=>$password])){
+            if(Auth::attempt(['email'=>$email,'password'=>$password, 'level'=> 1])){
                 return redirect('/admin');
             }else{
-                Session::flash('error', 'Email hoặc mật khẩu không đúng');
+                Session::flash('error', 'Email hoặc mật khẩu không đúng hoặc quyền hạn của bạn không đủ để vào trang quản trị');
                 return redirect('/login');
             };
         }

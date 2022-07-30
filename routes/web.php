@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\userController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,7 +24,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/register', [userController::class, 'index'])->name('dangky');
     Route::post('/admin/register', [userController::class, 'registerUser'])->name('resdangky');
     Route::get('/admin/update/{id}',[userController::class, 'UpdateUser'])->name('resUpdate');
+    Route::post('/admin/update/{id}',[userController::class, 'PostUpdateUser'])->name('resUpdateUser');
     Route::get('/admin/delete/{id}',[userController::class, 'deleteUser'])->name('delUser');
+
       // chức năng sản phẩm
     Route::get('/admin/product',[productController::class,'index'])->name('product');
     Route::get('/admin/product/addProduct',[productController::class,'showAddProduct'])->name('addProduct');
@@ -34,9 +37,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/category/addcategory', [categoryController::class, 'index'])->name('addcategory');
     Route::post('/admin/category/addcategory', [categoryController::class, 'addTypeProduct'])->name('Resaddcategory');
     Route::get('/admin/category/update/{id}',[categoryController::class, 'ShowUpdate'])->name('GetUpdateCategory');
+    Route::post('/admin/category/update/{id}',[categoryController::class, 'UpdateCategory'])->name('UpdateCategory');
     Route::get('/admin/category/delete/{id}',[categoryController::class, 'Dlete'])->name('GetDleteCategory');
-    // Route::get('/admin/test',function(){
-    //     return view('backend.categorys.updateCategory');
+    // Route::get('/admin/test',function(Request $request){
+    //     dd($request);
     // })->name('test');
     
     // kết thúc chức năng loại sản phẩm 

@@ -35,6 +35,27 @@ class category extends Model
         $obj = $query->first();
         return $obj;
     }
+    public function updateCategory($id,$data){
+        $datas=array(
+            "ten_loai_san_pham"=> $data->name,
+            "tieu_de" => $data->title,
+            'updated_at'=>date('Y-m-d h:i:s'),
+            );
+       if($data->image == ''){
+
+       } else{
+        $file= $data->file('image');
+        $filename= date('YmdHi').$file->getClientOriginalName();
+        $datas['anh_loai_san_pham'] = $filename;
+       }
+       $checkUpdate =DB::table($this->table)->where('id','=',$id)->update($datas);
+       if($checkUpdate){
+        if($data->file('image')){
+            $file->move(public_path('image/image_type_product'), $filename);
+        }
+    }
+       
+    }
     public function addCategory($data){
         
             $file= $data->file('image');

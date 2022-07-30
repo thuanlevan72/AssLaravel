@@ -29,7 +29,6 @@ class product extends Model
             $file= $data->file('image_product');
             $filename= date('YmdHi').$file->getClientOriginalName();
             $datas=array(
-            
             "loai_san_pham_id"=> $data->type_product,
             "ten_san_pham"=> $data->name_product,
             "anh_san_pham" => $filename,
@@ -53,6 +52,7 @@ class product extends Model
        
         $query = DB::table('san_pham')->join('loai_san_pham','san_pham.loai_san_pham_id','=','loai_san_pham.id')
         ->select('san_pham.*','loai_san_pham.id', 'loai_san_pham.*');
+        
         $List = $query->paginate(15);
         return $List;
     }

@@ -26,7 +26,7 @@ class usersRequest extends FormRequest
         return [
             'name'=>'required|max:155|min:3',
             'email'=>'required|max:155|min:3|email|unique:users',
-            'phone'=>'required|max:15|min:10|unique:users',
+            'phone'=>'required|max:15|min:10',
             'password'=>'required|max:155|min:3',
             'image'=>'required',
 

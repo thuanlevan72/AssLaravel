@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\usersRequest;
+use App\Http\Requests\userUpdateRequets;
 use Illuminate\Http\Request;
 use App\Models\user1;
 use App\Models\Postimage;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 
 class userController extends Controller
@@ -18,9 +20,13 @@ class userController extends Controller
         return view('backend.users.addUser');
     }
     public function showUser(Request $request){
+        $search =  $request->input('search_name');
+        // dd($search);
         $object = new User1();
-        $this->v['extParams'] = $request->all();
-        $this->v['list'] = $object->loadListWithPager($this->v['extParams']);
+        $this->v['search'] = $search;
+        $this->v['extParams'] = $request->page;
+        $this->v['list'] = $object->loadListWithPager($this->v['search']);
+        $this->v['list']->appends(['search_name' => $search]);
         return view('backend.users.listUsers', $this->v);
     }
     public function UpdateUser($id){
@@ -29,6 +35,11 @@ class userController extends Controller
         $objItem = $test1->loadOne($id);
         $this->v['objItem'] = $objItem;
         return view("backend.users.EditUser", $this->v);
+    }
+    public function PostUpdateUser($id, userUpdateRequets $request){
+        $modelTest = new User1();
+        $check = $modelTest->updateUser($id,$request);
+        return redirect()->route('user');
     }
     public function registerUser(usersRequest $request){
   

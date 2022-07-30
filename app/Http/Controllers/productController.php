@@ -13,9 +13,13 @@ class productController extends Controller
     public function __construct(){
         $this->v = [];
     }
-    public function index(){
+    public function index(Request $request){
         $category = new category();
+        $product = new product();
+        $this->v['extParams'] = $request->all();
+        $this->v['list'] = $product->getJoinTypeproduct($this->v['extParams']);
         $this->v['type_product'] = $category->loadListType();
+     
         return view('backend.products.product',$this->v);
     }
     public function showAddProduct(){

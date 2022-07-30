@@ -43,10 +43,17 @@ class product extends Model
             );
             $checkInsert = DB::table('san_pham')->insert($datas);
             if($checkInsert){
-                if($data->file('image')){
+                if($data->file('image_product')){
                     $file->move(public_path('image/image_product'), $filename);
                 }
             }
             return $checkInsert;
+    }
+    public function getJoinTypeproduct($params = []){
+       
+        $query = DB::table('san_pham')->join('loai_san_pham','san_pham.loai_san_pham_id','=','loai_san_pham.id')
+        ->select('san_pham.*','loai_san_pham.id', 'loai_san_pham.*');
+        $List = $query->paginate(15);
+        return $List;
     }
 }

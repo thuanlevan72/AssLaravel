@@ -13,6 +13,7 @@
     }
 </style>
 <main>
+
     <link rel="stylesheet" href="{{asset('didongviet/backend/tablecss/product.css')}}">
     <div class="top-user">
         <div class="heading-text">
@@ -68,11 +69,11 @@
             </tr>
            </thead>
             <tbody>
-                
+        @foreach($list as $item)
             <tr>
-                <td >1</td>
-                <td style="width: 210px;">Iphone 12 ProMax</td>
-                <td><img src="{{asset('image/image_product/iphone-13-mini-256gb-chinh-hang-didongviet.jpg')}}" width="100px" height="" alt=""></td>
+                <td >{{$loop->index + 1}}</td>
+                <td style="width: 210px;">{{$item->ten_san_pham}}</td>
+                <td><img src="{{asset('image/image_product/')}}/{{$item->anh_san_pham}}" width="100px" height="" alt=""></td>
                 <td style="width: 20px; text-align: center; font-weight: bold;">12</td>
                 <td>216126623 đ</td>
                 <td>100000 đ</td>
@@ -82,7 +83,7 @@
                 <td class="cn"><a href="./update_product.php?id="><button class="update">Sửa</button></a><a><button onclick="" class="delete">Xóa</button></a></td>
                 <td><a href=""><button class="ct">Xem Ngay</button></a></td>
             </tr>
-        
+        @endforeach
             <tr>
                 <td colspan="8">không có dữ liệu nào tồn tại</td>
                 <td colspan="3"><a href="./product.php"><button>reset</button></a></td>

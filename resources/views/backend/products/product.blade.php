@@ -41,7 +41,7 @@
     <form action="" method="GET" class="tk_type" enctype="multipart/form">
             <div class="form-group typesss">
               <label for="" class="type_product_serch" style="width: 100%">Tìm kiếm theo loại</label>
-              <select class="form-control" name="type" id="" style="width: 80%">
+              <select class="form-control" name="search_name" id="" style="width: 80%">
                 @foreach($type_product as $item)
                 <option value="{{$item->id}}">{{$item->ten_loai_san_pham}}</option>
                 
@@ -65,7 +65,6 @@
                 <th>status</th>
                 <th>ngày tạo</th>
                 <th>chức năng</th>
-                <th>chi tiết</th>
             </tr>
            </thead>
             <tbody>
@@ -74,20 +73,21 @@
                 <td >{{$loop->index + 1}}</td>
                 <td style="width: 210px;">{{$item->ten_san_pham}}</td>
                 <td><img src="{{asset('image/image_product/')}}/{{$item->anh_san_pham}}" width="100px" height="" alt=""></td>
-                <td style="width: 20px; text-align: center; font-weight: bold;">12</td>
-                <td>216126623 đ</td>
-                <td>100000 đ</td>
-                <td style="font-weight: 600;">Iphone</td>
-                <td><p style="font-weight: 600; background-color: red;" class="qt">look</p></td>
+                <td style="width: 20px; text-align: center; font-weight: bold;">{{$item->so_luong}}</td>
+                <td>{{number_format($item->gia_san_pham)}} đ</td>
+                <td>{{$item->gia_khuyen_mai}}%</td>
+                <td style="font-weight: 600;">{{$item->ten_loai_san_pham}}</td>
+                <td><p style="font-weight: 600; background-color: red;" class="{{$item->trang_thai == 1 ? 'qt' : ''}}">{{$item->trang_thai == 1 ? 'look':''}}</p></td>
                 <td>{{date('Y-m-d')}}</td>
-                <td class="cn"><a href="./update_product.php?id="><button class="update">Sửa</button></a><a><button onclick="" class="delete">Xóa</button></a></td>
-                <td><a href=""><button class="ct">Xem Ngay</button></a></td>
+                <td class="cn"><a href="{{route('showUpdateProduct',['id'=>$item->id])}}"><button class="update">Sửa</button></a><a onclick="return confirm('bạn có chắc muốn xóa không')" href="{{route('dleProduct',['id'=>$item->id])}}"><button class="delete">Xóa</button></a></td>
             </tr>
         @endforeach
+        @if(count($list) <= 0)
             <tr>
                 <td colspan="8">không có dữ liệu nào tồn tại</td>
                 <td colspan="3"><a href="./product.php"><button>reset</button></a></td>
             </tr>
+            @endif
       
             </tbody>
             <tfoot>
@@ -96,6 +96,9 @@
                 </tr> -->
             </tfoot>
         </table>
+        <div class="text-center">
+            {{ $list->links() }}
+        </div>
     </div>
 </main>
 

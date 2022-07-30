@@ -31,6 +31,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/product',[productController::class,'index'])->name('product');
     Route::get('/admin/product/addProduct',[productController::class,'showAddProduct'])->name('addProduct');
     Route::post('/admin/product/addProduct',[productController::class,'addProduct'])->name('ResaddProduct');
+    Route::get('/admin/product/dleProduct/{id}',[productController::class,'dleProduct'])->name('dleProduct');
+    Route::get('/admin/product/UpdateProduct/{id}',[productController::class,'updateProduct'])->name('showUpdateProduct');
+    Route::post('/admin/product/UpdateProduct/{id}',[productController::class,'PostupdateProduct'])->name('UpdateProduct');
     // kết thúc chức  năng sản phẩm
     // các  chức năng của loại sản phẩm
     Route::get('/admin/category',[categoryController::class,'showCategory'])->name('category');
@@ -39,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/category/update/{id}',[categoryController::class, 'ShowUpdate'])->name('GetUpdateCategory');
     Route::post('/admin/category/update/{id}',[categoryController::class, 'UpdateCategory'])->name('UpdateCategory');
     Route::get('/admin/category/delete/{id}',[categoryController::class, 'Dlete'])->name('GetDleteCategory');
+    
     // Route::get('/admin/test',function(Request $request){
     //     dd($request);
     // })->name('test');

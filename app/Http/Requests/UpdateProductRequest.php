@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class productRequest extends FormRequest
+class UpdateProductRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -16,7 +16,7 @@ class productRequest extends FormRequest
         return true;
     }
 
-    /** 
+    /**
      * Get the validation rules that apply to the request.
      *
      * @return array<string, mixed>
@@ -28,7 +28,6 @@ class productRequest extends FormRequest
            'quantity'=>'required|min:1',
            'price'=>'required|integer|min:1',
            'sale_price'=>'required|integer|min:0|max:100',
-           'image_product'=>'required',
            'body'=>'required|min:5|max:2000',
             'title'=>'required|min:3|max:50',
         ];
@@ -39,7 +38,6 @@ class productRequest extends FormRequest
             'name_product.required' => 'tên sản phẩm không được để trống',
             'name_product.min' => 'tên sản phẩm tối thiểu 3 ký tự',
             'name_product.max' => 'tên sản phẩm tối đa 50 ký tự',
-            'image_product.required'  => 'image không được để trống',
             'quantity.required'=>'số lượng không được để trống',
             'price.required'=>'giá sản phẩm không được để trống',
             'sale_price.required' => 'giá khuyên mãi không được để trống',

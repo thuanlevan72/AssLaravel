@@ -1,5 +1,17 @@
 @extends('backend.layouts.layout')
 @section('content')
+<style>
+    .typesss{
+        width: 100%;
+        display:grid;
+        grid-template-columns: 3fr 3fr;
+    }
+    .type_product_serch{
+        margin: 0;
+        padding: 10px 0;
+        width: 100%;
+    }
+</style>
 <main>
     <link rel="stylesheet" href="{{asset('didongviet/backend/tablecss/product.css')}}">
     <div class="top-user">
@@ -26,13 +38,13 @@
     </form>
     
     <form action="" method="GET" class="tk_type" enctype="multipart/form">
-            <div class="form-group">
-              <label for="">Tìm kiếm theo loại</label>
-              <select class="form-control" name="type" id="">
-                <option value="">IPhone</option>
-                <option value="">Ipad</option>
-                <option value="">Ios</option>
-                <option value="">MacBook</option>
+            <div class="form-group typesss">
+              <label for="" class="type_product_serch" style="width: 100%">Tìm kiếm theo loại</label>
+              <select class="form-control" name="type" id="" style="width: 80%">
+                @foreach($type_product as $item)
+                <option value="{{$item->id}}">{{$item->ten_loai_san_pham}}</option>
+                
+                @endforeach
               </select>
             </div>
             <button type="submit">Tìm kiếm</button>

@@ -6,6 +6,8 @@ use App\Http\Requests\usersRequest;
 use Illuminate\Http\Request;
 use App\Models\user1;
 use App\Models\Postimage;
+use Illuminate\Support\Facades\Session;
+
 class userController extends Controller
 {
     private $v;
@@ -37,6 +39,7 @@ class userController extends Controller
     public function deleteUser($id){
         $modeldle = User1::find($id);
         $modeldle->delete();
+        Session::flash('mes','xóa thành công');
         return redirect(route('user'));
     }   
 }

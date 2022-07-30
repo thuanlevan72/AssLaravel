@@ -25,6 +25,16 @@ class category extends Model
         $List = $query->paginate(15);
         return $List;
     } 
+    public function loadListType(){
+        $query = DB::table($this->table)->select(['id','ten_loai_san_pham']);
+        $List = $query->get();
+        return $List;
+    } 
+    public function loadOne($id, $params = null){
+        $query = DB::table($this->table)->where('id','=',$id);
+        $obj = $query->first();
+        return $obj;
+    }
     public function addCategory($data){
         
             $file= $data->file('image');

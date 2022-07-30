@@ -24,7 +24,7 @@ class user1 extends Model
     ];
     public function loadListWithPager($params = []){
         $query = DB::table($this->table)->select($this->fillable);
-        $List = $query->paginate(20);
+        $List = $query->paginate(15);
         return $List;
     } 
     public function createUser($data){
@@ -42,8 +42,6 @@ class user1 extends Model
         $checkInsert = DB::table('users')->insert($datas);
         if($checkInsert){
             if($data->file('image')){
-                $file= $data->file('image');
-                $filename= date('YmdHi').$file->getClientOriginalName();
                 $file->move(public_path('image/image_user'), $filename);
             }
         }

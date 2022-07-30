@@ -8,45 +8,56 @@
     </div>
     <p></p>
     <div class="container">
-    <form action="" method="POST" enctype="multipart/form-data">
+    <form action="{{route('ResaddProduct')}}" method="POST" enctype="multipart/form-data">
+      @csrf
         <div class="form-group">
           <label for="">Tên sản phẩm</label>
-          <input type="text" name="name_product" id="" class="form-control" placeholder="nhập vào tên loại sản phẩm" aria-describedby="helpId" required>
-          <small style="color: red;" id="helpId" class="text-muted"></small>
+          <input type="text" name="name_product" id="" value="{{ old('name_product') }}" class="form-control" placeholder="nhập vào tên loại sản phẩm" aria-describedby="helpId" required>
+          <small style="color: red;" id="helpId" class="text-muted">@error('name_product') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">Số lượng sản phẩm</label>
-          <input type="number" name="quantity" id="" class="form-control" min="1" placeholder="nhập vào số lượng sản phẩm" aria-describedby="helpId" required>
-          <small style="color: red;" id="helpId" class="text-muted"></small>
+          <input type="number" name="quantity" id="" value="{{ old('quantity') }}" class="form-control" min="1" placeholder="nhập vào số lượng sản phẩm" aria-describedby="helpId" required>
+          <small style="color: red;" id="helpId" class="text-muted">@error('quantity') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">Giá sản phẩm</label>
-          <input type="number" name="price" id="" class="form-control" min="500000" max=""placeholder="nhập vào giá của sản phẩm" aria-describedby="helpId" required>
-          <small style="color: red;" id="helpId" class="text-muted"></small>
+          <input type="number" name="price" id="" value="{{ old('price') }}" class="form-control" min="500000" max=""placeholder="nhập vào giá của sản phẩm" aria-describedby="helpId" required>
+          <small style="color: red;" id="helpId" class="text-muted">@error('price') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
-          <label for="">Giá sale của sản phẩm</label>
-          <input type="number" name="sale_price" id="" value="0"  min="0" class="form-control" placeholder="nhập vào giá sale của sản phẩm" aria-describedby="helpId" required>
-          <small style="color: red;" id="helpId" class="text-muted"></small>
+          <label for="">% sale của sản phẩm</label>
+          <input type="number" name="sale_price" id="" value="{{ old('sale_price') }}" value="0"  min="0" class="form-control" placeholder="nhập vào giá sale của sản phẩm" aria-describedby="helpId" required>
+          <small style="color: red;" id="helpId" class="text-muted">@error('sale_price') {{$message}} @enderror</small>
+        </div>
+        <div class="form-group">
+          <label for="">Tiêu đề của sản phẩm</label>
+          <textarea name="title" id=""  cols="30" rows="10" placeholder="nhập vào đây tiêu đề của sản phẩm">{{old('title')}}</textarea>
+          <small style="color: red;" id="helpId" class="text-muted">@error('title') {{$message}} @enderror</small>
+        </div>
+        <div class="form-group">
+          <label for="">nội dung sản phẩm</label>
+          <textarea name="body" id="" cols="30" rows="10" placeholder="nhập vào đây nội dung của sản phẩm">{{old('body')}}</textarea>
+          <small style="color: red;" id="helpId" class="text-muted">@error('body') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">Tải ảnh loại sản phẩm</label>
           <input type="file" class="form-control-file" name="image_product" id="" placeholder="" aria-describedby="fileHelpId" required>
-          <small style="color: red;" id="helpId" class="text-muted"></small>
+          <small style="color: red;" id="helpId" class="text-muted">@error('image_product') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">Thiết lập loại sản phẩm</label>
           <select class="custom-select" name="type_product" id="">
-         
-            <option value=""></option>
-        
+            @foreach($type_product as $item)
+            <option value="{{$item->id}}">{{$item->ten_loai_san_pham}}</option>
+            @endforeach
           </select>
         </div>
         <div class="form-group">
           <label for="">Thiết lập hiển thị</label>
           <select class="custom-select" name="status" id="">
-            <option value="Active" selected>Active</option>
-            <option value="Look">Look</option>
+            <option value="0" selected>Active</option>
+            <option value="1">Look</option>
           </select>
         </div>
         <br>

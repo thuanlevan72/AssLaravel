@@ -37,7 +37,7 @@
                 <th>{{$item->ten_loai_san_pham}}</th>
                 <td style="text-align:center"><img src="{{asset('image/image_type_product')}}/{{$item->anh_loai_san_pham}}" alt=""></td>
                 <td>{{$item->created_at}}</td>
-                <td class="cn"><a href="./update_type_product.php?id=>"><button class="update">Sửa</button></a><a><button onclick="delete_type()" class="delete">Xóa</button></a></td>
+                <td class="cn"><a href="{{route('GetUpdateCategory', ['id' => $item->id])}}"><button class="update">Sửa</button></a><a onclick="return confirm('bạn có chắc muốn xóa khống')" href="{{route('GetDleteCategory',['id'=>$item->id])}}"><button onclick="delete_type()" class="delete">Xóa</button></a></td>
             </tr>
             @endforeach
             @if(count($list) <=0)

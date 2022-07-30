@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class categoryController extends Controller
 {
+    private $v;
+    public function __construct(){
+        $this->v = [];
+    }
     public function index(){
         return view('backend.categorys.addcategory');
     }
@@ -16,6 +20,17 @@ class categoryController extends Controller
         $this->v['extParams'] = $request->all();
         $this->v['list'] = $object->loadListWithPager($this->v['extParams']);
         return view('backend.categorys.category', $this->v);
+    }
+    public function ShowUpdate($id){
+        $object = new category();
+        $objItem = $object->loadOne($id);
+        $this->v['objItem'] = $objItem;
+        return view('backend.categorys.updateCategory',$this->v);
+    }
+    public function Dlete($id){
+        $object =  category::find($id);
+        $object->delete();
+        return redirect(route('category'));
     }
     public function addTypeProduct(categoryRequest $request){
        $insert = new category();

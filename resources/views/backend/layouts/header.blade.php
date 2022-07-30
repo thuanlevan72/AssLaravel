@@ -13,12 +13,18 @@ $objUser = \Illuminate\Support\Facades\Auth::user();
     <link rel="stylesheet" href ="{{asset('didongviet/backend/layout.css')}}">
     <style>
         .text-center .justify-between .hidden{
-            display: none !important;
+             display: none !important;
+            width: 100%;
+            height: 50px;
         }
+    
         .text-center .flex {
             text-align: center;
            padding: 10px 0 0 0;
            background-color:#fff;
+        }
+        .text-center .flex path{
+            display: none;
         }
     </style>
     <style>

@@ -83,13 +83,13 @@ $objUser = \Illuminate\Support\Facades\Auth::user();
                     <li><a href="./thong_ke_order.php">doanh Thu</a></li>
                 </ul>
             </li>
-            <li ><a class="cha1" href="../html_user/home">Trang Frontend</a></li>
-            <li class="cha6"><a class="cha1" href="./user.php">User</a>
+            <li ><a class="cha1" href="{{route('user')}}">Trang Frontend</a></li>
+            <li class="cha6"><a class="cha1" href="{{route('user')}}">User</a>
             </li>
             <li class="cha2"><a class="cha1" >hàng hóa</a>
             <ul class="con3">
-                    <li><a href="./type_product.php">Loại hàng hóa</a></li>
-                    <li><a href="./product.php">Hàng hóa</a></li>
+                    <li><a href="{{route('category')}}">Loại hàng hóa</a></li>
+                    <li><a href="{{route('product')}}">Hàng hóa</a></li>
                     <li><a href="./comment_product.php">Bình luận theo hàng hóa</a></li>
                 </ul>
         </li>

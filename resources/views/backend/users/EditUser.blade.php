@@ -57,7 +57,7 @@
         </div>
         <br>
         <br>
-        <button type="submit" name="submit" class="btn btn-primary">Đăng Ký</button>
+        <button type="submit" name="submit" class="btn btn-primary">Sửa Thông tin</button>
     </form>
     </div>
 </main>

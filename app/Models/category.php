@@ -20,8 +20,8 @@ class category extends Model
         'created_at',
         'updated_at',
     ];
-    public function loadListWithPager($params = []){
-        $query = DB::table($this->table)->select($this->fillable);
+    public function loadListWithPager($search){
+        $query = DB::table($this->table)->where('ten_loai_san_pham','like','%'.$search.'%')->select($this->fillable);
         $List = $query->paginate(15);
         return $List;
     } 
@@ -36,6 +36,7 @@ class category extends Model
         return $obj;
     }
     public function updateCategory($id,$data){
+        
         $datas=array(
             "ten_loai_san_pham"=> $data->name,
             "tieu_de" => $data->title,
@@ -48,7 +49,8 @@ class category extends Model
         $filename= date('YmdHi').$file->getClientOriginalName();
         $datas['anh_loai_san_pham'] = $filename;
        }
-       $checkUpdate =DB::table($this->table)->where('id','=',$id)->update($datas);
+      
+       $checkUpdate = DB::table($this->table)->where('id','=',$id)->update($datas);
        if($checkUpdate){
         if($data->file('image')){
             $file->move(public_path('image/image_type_product'), $filename);

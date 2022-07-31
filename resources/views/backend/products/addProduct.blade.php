@@ -1,5 +1,13 @@
 @extends('backend.layouts.layout')
 @section('content')
+<style>
+  nav ul .cha2 .cha1{
+      color: #3bc0c3;
+      background-color: #eee;
+      -webkit-transition: 1.5s;
+      transition: 0.5s;
+  }
+</style>
 <link rel="stylesheet" href="{{asset('didongviet/backend/formcss/form.css')}}">
 <main>
 

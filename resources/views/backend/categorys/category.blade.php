@@ -1,5 +1,13 @@
 @extends('backend.layouts.layout')
 @section('content')
+<style>
+    nav ul .cha2 .cha1{
+        color: #3bc0c3;
+        background-color: #eee;
+        -webkit-transition: 1.5s;
+        transition: 0.5s;
+    }
+</style>
 <link rel="stylesheet" href="{{asset('didongviet/backend/tablecss/product.css')}}">
 <main>
     <div class="top-user">
@@ -53,6 +61,9 @@
                 </tr> -->
             </tfoot>
         </table>
+        <div class="text-center">
+            {{ $list->links() }}
+        </div>
     </div>
 </main>
 @endsection

@@ -1,5 +1,13 @@
 @extends('backend.layouts.layout')
 @section('content')
+<style>
+  nav ul .cha2 .cha1{
+      color: #3bc0c3;
+      background-color: #eee;
+      -webkit-transition: 1.5s;
+      transition: 0.5s;
+  }
+</style>
 <link rel="stylesheet" href="{{asset('didongviet/backend/formcss/form.css')}}">
 <main>
   <!-- -->
@@ -12,7 +20,7 @@
       @csrf
         <div class="form-group">
           <label for="">Tên loại sản phẩm</label>
-          <input type="text" name="name" id="" value="{{$objItem->ten_loai_san_pham}}" class="form-control" placeholder="nhập vào tên loại sản phẩm" aria-describedby="helpId" required>
+          <input type="text" name="name" id="" value="{{old('name') == null ? $objItem->ten_loai_san_pham :old('name')}}" class="form-control" placeholder="nhập vào tên loại sản phẩm" aria-describedby="helpId" required>
           <small style="color: red;" id="helpId" class="text-muted">@error('name') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
@@ -23,12 +31,12 @@
         </div>
         <div class="form-group">
           <label for="">Tiêu đề loại sản phẩm</label>
-          <textarea name="title" id="" cols="30" rows="10">{{$objItem->tieu_de}}</textarea>
-          <small style="color: red;" id="helpId" class="text-muted">@error('name') {{$message}} @enderror</small>
+          <textarea name="title" id="" cols="30" rows="10">{{old('title') == null ?$objItem->tieu_de :old('title')  }}</textarea>
+          <small style="color: red;" id="helpId" class="text-muted">@error('title') {{$message}} @enderror</small>
         </div>
         <br>
         <br>
-        <button type="submit" name="submit" class="btn btn-primary">Thêm mới</button>
+        <button type="submit" name="submit" class="btn btn-primary">Sửa Thông tin</button>
     </form>
     </div>
 </main>

@@ -1,3 +1,5 @@
+{{-- // gọi lớp model mà không cần thông qua controller and --}}
+{{$dataSlide =  App\Models\banner::someFunction()}}
 <div class="banner">
     <style>
       .banner .nav li{
@@ -17,29 +19,22 @@
     </ul>
     <div class="slide">
     <div class="slideshow-container">
-    
+@foreach($dataSlide as $item)  
 <div class="mySlides fade">
-    <a href=""><img src="{{asset('image/image_slide/banner-iphone-13-diddongviet-1-768x371_1.jpg')}}" style="width:100%"></a>    
+    <a href="{{$item->tieu_de}}"><img src="{{asset('image/image_slide/')}}/{{$item->anh_banner}}" style="width:100%"></a>    
 </div>
-<div class="mySlides fade">
-    <a href=""><img src="{{asset('image/image_slide/banner-iphone-13-diddongviet-1-768x371_1.jpg')}}" style="width:100%"></a>    
-</div>
-<div class="mySlides fade">
-    <a href=""><img src="{{asset('image/image_slide/banner-iphone-13-diddongviet-1-768x371_1.jpg')}}" style="width:100%"></a>    
-</div>
+@endforeach
 </div>
 <br>
 
 <div style="text-align:center" class="dot-cc">
-
-<span class="dot" onclick="currentSlide(0)"></span> 
-<span class="dot" onclick="currentSlide(1)"></span> 
-<span class="dot" onclick="currentSlide(2)"></span> 
+  @foreach($dataSlide as $item)  
+  <span class="dot" onclick="currentSlide({{$loop->index}})"></span> 
+  @endforeach
 
 </div>
     </div>
   <div class="banner-2">
- 
       <a href=""><img src="{{asset('image/image_banner/apple-watch-3-didongviet-480x248.jpg')}}" alt=""></a>
       <a href=""><img src="{{asset('image/image_banner/galaxy-z-fold-didongviet-480x248.jpg')}}" alt=""></a>
   </div>

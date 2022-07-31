@@ -12,6 +12,14 @@
         width: 100%;
     }
 </style>
+<style>
+    nav ul .cha2 .cha1{
+        color: #3bc0c3;
+        background-color: #eee;
+        -webkit-transition: 1.5s;
+        transition: 0.5s;
+    }
+</style>
 <main>
 
     <link rel="stylesheet" href="{{asset('didongviet/backend/tablecss/product.css')}}">

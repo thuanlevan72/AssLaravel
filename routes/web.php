@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\bannerController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\userController;
@@ -42,7 +43,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/category/update/{id}',[categoryController::class, 'ShowUpdate'])->name('GetUpdateCategory');
     Route::post('/admin/category/update/{id}',[categoryController::class, 'UpdateCategory'])->name('UpdateCategory');
     Route::get('/admin/category/delete/{id}',[categoryController::class, 'Dlete'])->name('GetDleteCategory');
-    
+    // các chức năng của banner
+    Route::get('/admin/banner',[bannerController::class,'index'])->name('showListBanner');
+    Route::get('/admin/banner/addBanner',[bannerController::class,'showFormAddBanner'])->name('showFormAddBanner');
+    Route::post('/admin/banner/addBanner',[bannerController::class,'actionAddBanner'])->name('actionAddBanner');
+    // Route::get('admin/banner/getShowBanner',[bannerController::class,'showBanner'])->name('getShowBanner');
     // Route::get('/admin/test',function(Request $request){
     //     dd($request);
     // })->name('test');

@@ -1,5 +1,13 @@
 @extends('backend.layouts.layout')
 @section('content')
+<style>
+  nav ul .cha2 .cha1{
+      color: #3bc0c3;
+      background-color: #eee;
+      -webkit-transition: 1.5s;
+      transition: 0.5s;
+  }
+</style>
 <link rel="stylesheet" href="{{asset('didongviet/backend/formcss/form.css')}}">
 <main>
   <!-- -->
@@ -23,7 +31,7 @@
         <div class="form-group">
           <label for="">Tiêu đề loại sản phẩm</label>
           <textarea name="title" id="" cols="30"   value="{{old('title')}}" rows="10">tiêu đề mặc định</textarea>
-          <small style="color: red;" id="helpId" class="text-muted">@error('name') {{$message}} @enderror</small>
+          <small style="color: red;" id="helpId" class="text-muted">@error('title') {{$message}} @enderror</small>
         </div>
         <br>
         <br>

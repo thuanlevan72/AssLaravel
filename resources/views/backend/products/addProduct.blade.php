@@ -30,12 +30,12 @@
         </div>
         <div class="form-group">
           <label for="">Giá sản phẩm</label>
-          <input type="number" name="price" id="" value="{{ old('price') }}" class="form-control" min="500000" max=""placeholder="nhập vào giá của sản phẩm" aria-describedby="helpId" required>
+          <input type="number" name="price" id="" value="{{  old('price') == '' ? 0: old('price') }}" class="form-control" min="500000" max=""placeholder="nhập vào giá của sản phẩm" aria-describedby="helpId" required>
           <small style="color: red;" id="helpId" class="text-muted">@error('price') {{$message}} @enderror</small>
         </div>
         <div class="form-group">
           <label for="">% sale của sản phẩm</label>
-          <input type="number" name="sale_price" id="" value="{{ old('sale_price') }}" value="0"  min="0" class="form-control" placeholder="nhập vào giá sale của sản phẩm" aria-describedby="helpId" required>
+          <input type="number" name="sale_price" id="" value="{{ old('sale_price') == '' ? 0: old('sale_price')}}"  min="0" class="form-control" placeholder="nhập vào giá sale của sản phẩm" aria-describedby="helpId" required>
           <small style="color: red;" id="helpId" class="text-muted">@error('sale_price') {{$message}} @enderror</small>
         </div>
         <div class="form-group">

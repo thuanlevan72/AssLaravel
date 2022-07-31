@@ -33,7 +33,7 @@
     @if(count($list)<5)
      <a href="{{route('showFormAddBanner')}}"><button style="color: #fff;">Thêm mới Slide</button></a>
      @else
-     <a href="{{route('showFormAddBanner')}}"><button  style="color: #fff; width: 400px; background-color: red">Tối đa chỉ được 5 slide được xuất hiện</button></a>
+     <a href="{{route('eoThemDuocDau')}}"><button  style="color: #fff; width: 400px; background-color: red">Tối đa chỉ được 5 slide được xuất hiện</button></a>
      @endif
     </div>
    
@@ -54,7 +54,7 @@
                 <td style="width: 150px;">{{$item->ten_banner}}</td>
                 <td style="width: 270px;"><img src="{{asset('image/image_slide')}}/{{$item->anh_banner}}" style="width:270px" alt=""></td>
                 <td>{{$item->tieu_de}}</td>
-                <td class="cn" style="width: 200px !important;"><a href="./update_slide.php?id="><button class="update">Sửa</button></a><a><button class="delete">Xóa</button></a></td>
+                <td class="cn" style="width: 200px !important;"><a href="{{route('showUpdateBanner',['id'=>$item->id])}}"><button class="update">Sửa</button></a><a><button class="delete">Xóa</button></a></td>
             </tr>
             @endforeach
             @if(count($list)<=0)

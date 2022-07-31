@@ -47,7 +47,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/banner',[bannerController::class,'index'])->name('showListBanner');
     Route::get('/admin/banner/addBanner',[bannerController::class,'showFormAddBanner'])->name('showFormAddBanner');
     Route::post('/admin/banner/addBanner',[bannerController::class,'actionAddBanner'])->name('actionAddBanner');
-    // Route::get('admin/banner/getShowBanner',[bannerController::class,'showBanner'])->name('getShowBanner');
+    Route::get('admin/banner/showUpdateBanner/{id}',[bannerController::class,'showUpdateBanner'])->name('showUpdateBanner');
+    Route::post('admin/banner/showUpdateBanner/{id}',[bannerController::class,'UpdateBanner'])->name('UpdateBanner');
+    Route::get('/admin/banner/addBanneerror',function(){
+        return ("éo thêm được nữa đâu mà cứ cố mà bấm");
+    })->name('eoThemDuocDau');
     // Route::get('/admin/test',function(Request $request){
     //     dd($request);
     // })->name('test');

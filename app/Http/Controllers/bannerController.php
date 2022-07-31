@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\bannerRequest;
+use App\Http\Requests\updateBannerRequets;
 use App\Models\banner;
 use Illuminate\Http\Request;
 
@@ -29,5 +30,15 @@ class bannerController extends Controller
         $banner = new banner();
         $banner->addBanner($request);
         return redirect(route('showListBanner'));
+     }
+     public function showUpdateBanner($id){
+      $banner = new banner();
+      $this->v['dataOneBanner'] = $banner->loadOne($id);
+      return view('backend/banners/updateBanner',$this->v);
+     }
+     public function UpdateBanner($id,updateBannerRequets $request){
+      $banner = new banner();
+      $banner->updateBanner($id,$request);
+      return redirect(route('showListBanner'));
      }
 }

@@ -40,9 +40,38 @@ class banner extends Model
                 }
             }
     }
+    public function loadOne($id){
+        $query = DB::table($this->table)->where('id','=',$id);
+        $obj = $query->first();
+        return $obj;
+    }
     public static  function  someFunction() {
         $query = DB::table('banner')->select('banner.*');
         $List = $query->paginate(15);
         return $List;
+    }
+    public function updateBanner($id,$data){
+        
+        $datas=array(
+            "ten_banner"=> $data->name_slide,
+            'tieu_de'=>$data->link,
+            'noi_dung'=>'',
+            "updated_at"=>date('Y-m-d h:i:s'),
+            );
+       if($data->image_slide == ''){
+
+       } else{
+        $file= $data->file('image_slide');
+        $filename= date('YmdHi').$file->getClientOriginalName();
+        $datas['anh_banner'] = $filename;
+       }
+      
+       $checkUpdate = DB::table($this->table)->where('id','=',$id)->update($datas);
+       if($checkUpdate){
+        if($data->file('image_slide')){
+            $file->move(public_path('image/image_slide'), $filename);
+        }
+    }
+       
     }
 }

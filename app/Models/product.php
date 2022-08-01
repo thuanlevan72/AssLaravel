@@ -54,11 +54,17 @@ class product extends Model
         return $obj;
     }
     public function getJoinTypeproduct($search){
-       
-       if(preg_match('/[0-9]/',$search)){
-        $query = DB::table('san_pham')->join('loai_san_pham','san_pham.loai_san_pham_id','=','loai_san_pham.id')->where('loai_san_pham_id','=',$search)->select('san_pham.*', 'loai_san_pham.ten_loai_san_pham');
+   
+       if(preg_match('/[0-9]/',$search) && $search <=10){
+        if(preg_match('/[a-zA-Z]/',$search)){
+            $query = DB::table('san_pham')->join('loai_san_pham','san_pham.loai_san_pham_id','=','loai_san_pham.id')->where('ten_san_pham','like',"%$search%")
+            ->select('san_pham.*', 'loai_san_pham.ten_loai_san_pham');
+        }else{
+            $query = DB::table('san_pham')->join('loai_san_pham','san_pham.loai_san_pham_id','=','loai_san_pham.id')->where('loai_san_pham_id','=',$search)->select('san_pham.*', 'loai_san_pham.ten_loai_san_pham');
+        }
+        
        }else{
-        $query = DB::table('san_pham')->join('loai_san_pham','san_pham.loai_san_pham_id','=','loai_san_pham.id')->where('ten_san_pham','like','%'.$search.'%')
+        $query = DB::table('san_pham')->join('loai_san_pham','san_pham.loai_san_pham_id','=','loai_san_pham.id')->where('ten_san_pham','like',"%$search%")
         ->select('san_pham.*', 'loai_san_pham.ten_loai_san_pham');
        }
         $List = $query->paginate(15);

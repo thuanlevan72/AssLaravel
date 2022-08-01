@@ -55,4 +55,5 @@ class productController extends Controller
         $product->updateProduct($id, $request);
         return redirect(route('product'));
     }
+   
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\bannerController;
 use App\Http\Controllers\categoryController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\userController;
 use Illuminate\Http\Request;
@@ -66,9 +67,7 @@ Route::middleware(['auth'])->group(function () {
 
 
 //đây là router frontend
-Route::get('/', function () {
-    return view('frontend.home');
-})->name('home');
+Route::get('/',[homeController::class,'getHome'])->name('home');
 Route::get('/loginUser',[LoginController::class,'showFormLogin'])->name('loginFront');
 Route::post('/loginUser',[LoginController::class,'postLoginFront'])->name('ResloginFront');
 // url login

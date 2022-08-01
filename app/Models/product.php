@@ -90,4 +90,29 @@ class product extends Model
             }
         }
     }
+    public function showProductTop15(){
+        $query = DB::table('san_pham');
+        $obj = $query->paginate(10);
+        return $obj;
+    }
+    public function ShowProductTop5OfMonth(){
+        $query = DB::table('san_pham')->where('gia_khuyen_mai','>','0')->orderBy('gia_khuyen_mai','desc');
+        $obj = $query->paginate(5);
+        return $obj;
+    }
+    public function ShowTop5NewProduct(){
+        $query = DB::table('san_pham')->orderBy('created_at','desc');
+        $obj = $query->paginate(5);
+        return $obj;
+    }
+    public function showProductTop5(){
+        $query = DB::table('san_pham');
+        $obj = $query->paginate(5);
+        return $obj;
+    }
+    public function showProductPhuKienTop4(){
+        $query = DB::table('san_pham')->where('loai_san_pham_id','=','10')->orderBy('created_at','desc');
+        $obj = $query->paginate(4);
+        return $obj;
+    }
 }

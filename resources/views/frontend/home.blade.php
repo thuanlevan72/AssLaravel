@@ -2,6 +2,7 @@
 
 @section('content')
 @include('frontend.layout.banner')
+
 <link rel="stylesheet" href="{{asset('didongviet/frontend/home.css')}}">
 <style>
     header .bottom-header .nav .nav-cc a{
@@ -34,18 +35,19 @@
 
 
 <div class="product-top">
-  
+@foreach($showProductTop10 as $item)
     <div class="box-product">
         <div class="img-product">
-           <a href="chitietsp?id_san_pham="> <img src="../image/image_product/" alt=""></a>
+           <a href="chitietsp?id_san_pham="> <img src="{{asset('image/image_product/')}}/{{$item->anh_san_pham}}" alt=""></a>
         </div>
         <a href="chitietsp?id_san_pham=" style="text-decoration:none">
         <div class="product-text">
+           {{$item->ten_san_pham}} 
         <br> 
         </div>
         </a>
     </div>
-
+@endforeach
 </div>
 <main>
     <div class="sale-main">
@@ -53,25 +55,25 @@
             <p>Bão sale của tháng</p>
         </div>
         <div class="content-sale">
-            
+            @foreach($showProductTop5OfMonth as $item)
             <div class="box-sale">
                 <div class="text-box">
-                    <p>Giảm  vnđ</p>
+                    <p>Giảm {{number_format(($item->gia_san_pham * $item->gia_khuyen_mai) / 100)}} vnđ</p>
                 </div>
                 <div class="image-sale">
-                   <a href="chitietsp?id_san_pham="><img src="../image/image_product/" alt=""></a>
+                   <a href="chitietsp?id_san_pham="><img src="{{asset('image/image_product/')}}/{{$item->anh_san_pham}}" alt=""></a>
                 </div>
                 <div class="text-price">
-                    <p class="name-sale">7483487329</p>
+                    <p class="name-sale">{{$item->ten_san_pham}}</p>
                     <br>
                     <p class="new-price">
-                    312312321 ₫
+                        {{number_format($item->gia_san_pham - (($item->gia_san_pham * $item->gia_khuyen_mai) / 100))}} đ
                     </p>
-                    <strike class="odd-price"> ₫</strike>
+                    <strike class="odd-price"> {{number_format($item->gia_san_pham)}} ₫</strike>
 
                 </div>
             </div>
-          
+          @endforeach
         </div>
     </div>
     <div class="banner-3">
@@ -84,37 +86,35 @@
         </div>
         <div class="box-product">
             <form action="sanpham" method="GET">
-         
-                <button type="submit" name="type_product" value="">Iphone</button>
-                <button type="submit" name="type_product" value="">Iphone</button>
-                <button type="submit" name="type_product" value="">Iphone</button>
-                <button type="submit" name="type_product" value="">Iphone</button>
-                <button type="submit" name="type_product" value="">Iphone</button>
-                <button type="submit" name="type_product" value="">Iphone</button>
+         @foreach($type_product as $item)
+                <button type="submit" name="type_product" value="{{$item->id}}">{{$item->ten_loai_san_pham}}</button>
+        @endforeach
+        
             </form>
             <div class="box-div">
-           
+           {{-- {{dd($showProductPhuKienTop4)}} --}}
+           @foreach($showProductPhuKienTop4 as $item)
                <div class="box">
                <div class="free-price">
                   
-                    <p>Giảm 78%</p>
+                    <p>Giảm {{$item->gia_khuyen_mai}}%</p>
                 
                 </div>
                 <div class="img-product">
-                    <a href="chitietsp?id_san_pham="><img src="../image/image_product/" alt=""></a>
+                    <a href="chitietsp?id_san_pham="><img src="{{asset('image/image_product/')}}/{{$item->anh_san_pham}}" alt=""></a>
                 </div>
                 <div class="text-product-price">
                     <a href="chitietsp?id_san_pham=" style="text-decoration: none;">
                     <p class="name-product" >
-                  
+                        {{$item->ten_san_pham }}                    
                     </p>
                     </a>
                     <p class="price-product">
-                    3123123123 ₫ &nbsp;&nbsp; <strike class="odd-price">  đâsdasdasdas ₫  </strike>
+                        {{number_format($item->gia_san_pham - (($item->gia_san_pham * $item->gia_khuyen_mai) / 100))}} ₫ &nbsp;&nbsp; <strike class="odd-price">  {{$item->gia_khuyen_mai > 0 ? number_format($item->gia_san_pham).' đ': '' }} ₫  </strike>
                     </p>
                 </div>
                </div>
-              
+            @endforeach 
             </div>
         </div>
     </div>
@@ -123,24 +123,26 @@
             <p>Top sản phẩm được yêu thích</p>
         </div>
         <div class="content-sale"  >
-       
+            
+       @foreach($showProductTop5 as $item)
             <div class="box-sale">
                 <div class="text-box-2">
-                    <p>#1</p>
+                    <p>#{{$loop->index+1}}</p>
                 </div>
                 <div class="image-sale">
-                    <a href="chitietsp?id_san_pham="><img src="../image/image_product/" alt=""></a>
+                    <a href="chitietsp?id_san_pham="><img src="{{asset('image/image_product/')}}/{{$item->anh_san_pham}}" alt=""></a>
                 </div>
                 <div class="text-price">
-                    <a href="chitietsp?id_san_pham=" style="text-decoration: none"><p class="name-sale"></p></a>
+                    <a href="chitietsp?id_san_pham=" style="text-decoration: none"><p class="name-sale">{{$item->ten_san_pham }}</p></a>
                     <br>
                     <p class="new-price">
-                    321321312321321312 ₫
+                        {{number_format($item->gia_san_pham - (($item->gia_san_pham * $item->gia_khuyen_mai) / 100))}} ₫
                     </p>
-                    <strike class="odd-price">312312312 ₫</strike>
+                    <strike class="odd-price">{{$item->gia_khuyen_mai > 0 ? number_format($item->gia_san_pham).' đ': '' }}</strike>
                 </div>
             </div>
-         
+         @endforeach
+       
         </div>
     </div>
     <div class="banner-3">
@@ -152,25 +154,25 @@
             <p>Top sản phẩm mới nhất</p>
         </div>
         <div class="content-sale" >
-      
+      @foreach ($ShowTop5NewProduct as $item)
             <div class="box-sale" >
                 <div class="text-box-2">
-                    <p>#1</p>
+                    <p>#{{$loop->index+1}}</p>
                 </div>
                 <div class="image-sale">
-                <a href="chitietsp?id_san_pham="><img src="../image/image_product/" alt=""></a>
+                <a href="chitietsp?id_san_pham="><img src="{{asset('image/image_product/')}}/{{$item->anh_san_pham}}" alt=""></a>
                 </div>
                 <div class="text-price">
-                <a href="chitietsp?id_san_pham=" style="text-decoration: none"><p class="name-sale">đâsdasdasd</p></a>
+                <a href="chitietsp?id_san_pham=" style="text-decoration: none"><p class="name-sale">{{$item->ten_san_pham}}</p></a>
                     <br>
                     <p class="new-price">
-                    34123412432423423 ₫
+                        {{number_format($item->gia_san_pham - (($item->gia_san_pham * $item->gia_khuyen_mai) / 100))}} ₫
                     </p>
-                    <strike class="odd-price">312312312 ₫</strike>
+                    <strike class="odd-price">{{$item->gia_khuyen_mai > 0 ? number_format($item->gia_san_pham).' đ': '' }}</strike>
 
                 </div>
             </div>
- 
+    @endforeach
         </div>
     </div>
     <div class="banner-4">

@@ -49,7 +49,25 @@ class productController extends Controller
         // dd($this->v['data']);
         return view('backend/products/UpdateProduct',$this->v);
     }
-
+    public function ProductDetails($id){
+        $product = new product();
+        $this->v['data'] = $product->loadOne($id);
+        if($this->v['data'] == null){
+           return redirect()->route('home');
+        }
+        return view('frontend.products.ProductDetails', $this->v);
+    }
+    public function showProductUser(Request $request){
+        $search =  $request->input('search_name');
+        $this->v['search'] = $search;
+        $category = new category();
+        $product = new product();
+        $this->v['list'] = $product->getJoinTypeproduct($this->v['search']);
+        $this->v['type_product'] = $category->loadListType();
+        $this->v['list']->appends(['search_name' => $search]);
+      
+        return view('frontend.products.showProduct', $this->v);
+    }
     public function PostupdateProduct($id,UpdateProductRequest $request){
         $product = new product();
         $product->updateProduct($id, $request);

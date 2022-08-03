@@ -37,8 +37,8 @@ $objUser = \Illuminate\Support\Facades\Auth::user();
                <a href="./giao_dien_chinh.php"><img src="{{asset('image/imgae_logo/logo-ddv.png')}}" alt=""></a>
             </div>
             <div class="input_search">
-                <form action="./product_user.php" method="GET">
-                    <input type="text" name="search" placeholder="tìm kiếm theo tên sản phẩm" required>
+                <form action="{{route('product')}}" method="GET">
+                    <input type="text" name="search_name" placeholder="tìm kiếm theo tên sản phẩm" required>
                     <button type="submit" name="" class="btn btn-search"><i class="fas fa-search"></i></button>
                 </form>
                 <style>

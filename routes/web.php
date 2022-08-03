@@ -51,7 +51,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('admin/banner/showUpdateBanner/{id}',[bannerController::class,'showUpdateBanner'])->name('showUpdateBanner');
     Route::post('admin/banner/showUpdateBanner/{id}',[bannerController::class,'UpdateBanner'])->name('UpdateBanner');
     Route::get('/admin/banner/addBanneerror',function(){
-        return ("éo thêm được nữa đâu mà cứ cố mà bấm");
+        return ("không thêm được nữa đâu mà cứ cố mà bấm");
     })->name('eoThemDuocDau');
     // Route::get('/admin/test',function(Request $request){
     //     dd($request);
@@ -68,6 +68,8 @@ Route::middleware(['auth'])->group(function () {
 
 //đây là router frontend
 Route::get('/',[homeController::class,'getHome'])->name('home');
+Route::get('/product',[productController::class,'showProductUser'])->name('product');
+Route::get('/product/ProductDetails/{id}',[productController::class,'ProductDetails'])->name('ProductDetails');
 Route::get('/loginUser',[LoginController::class,'showFormLogin'])->name('loginFront');
 Route::post('/loginUser',[LoginController::class,'postLoginFront'])->name('ResloginFront');
 // url login

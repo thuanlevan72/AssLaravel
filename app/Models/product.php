@@ -67,7 +67,7 @@ class product extends Model
         $query = DB::table('san_pham')->join('loai_san_pham','san_pham.loai_san_pham_id','=','loai_san_pham.id')->where('ten_san_pham','like',"%$search%")
         ->select('san_pham.*', 'loai_san_pham.ten_loai_san_pham');
        }
-        $List = $query->paginate(15);
+        $List = $query->paginate(20);
         return $List;
     }
     public function updateProduct($id, $data){

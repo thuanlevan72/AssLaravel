@@ -1,0 +1,209 @@
+.top-main {
+    width: 100%;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.top-main .type-sp {
+    width: 100%;
+}
+
+.top-main .type-sp form {
+    width: 95%;
+    margin: 2.5%;
+    padding: 20px 0 15px 0;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+.top-main .type-sp form button {
+    height: 30px;
+    padding: 6px 15px;
+    margin-left: 15px;
+    border-radius: 14px;
+    -webkit-border-radius: 14px;
+    color: black;
+    background-color: #fff;
+    border: 0.5px solid #eee;
+}
+
+.top-main .type-sp form button:hover {
+    background-color: #be1b2d;
+    color: white;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.top-main .price-sp {
+    width: 97%;
+    display: grid;
+    margin: 0 2.5%;
+    grid-template-columns: 1fr 14fr;
+    padding: 10px 0 20px 0;
+}
+
+.top-main .price-sp .texth1 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 25px;
+}
+
+.top-main .price-sp form {
+    width: 95%;
+}
+
+.top-main .price-sp form button {
+    height: 30px;
+    padding: 0px 15px;
+    margin-left: 15px;
+    border-radius: 14px;
+    -webkit-border-radius: 14px;
+    color: black;
+    background-color: #fff;
+    border: 0.5px solid #eee;
+}
+
+.top-main .price-sp form button:hover {
+    background-color: #be1b2d;
+    color: white;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+
+/* end phần headr */
+
+.middle-main {
+    width: 100%;
+    background-color: #fff;
+    margin: 10px 0;
+}
+
+.middle-main .header_product {
+    width: 97%;
+    margin: 0 1.5%;
+    padding: 0px 0;
+    border-bottom: 2px solid #eee;
+}
+
+.middle-main .header_product {
+    font-size: 23px;
+    font-weight: bold;
+    padding: 20px 0;
+    column-gap: 20px;
+}
+
+.middle-main .bottom_product {
+    width: 97%;
+    margin: 0 1.5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 20px;
+    row-gap: 60px;
+    margin-top: 40px;
+    padding-bottom: 30px;
+}
+
+.middle-main .bottom_product .box_product {
+    width: 100%;
+}
+
+.middle-main .bottom_product .box_product .box_price {
+    width: 100%;
+    font-size: 12px;
+    padding-bottom: 10px;
+    height: 40px;
+}
+
+.middle-main .bottom_product .box_product .box_price p {
+    /* display: inline; */
+    width: 45%;
+    padding: 10px 10px;
+    background-color: #be1b2d;
+    color: #fff;
+    border-radius: 5px;
+}
+
+
+/* .middle-main .bottom_product .box_product  */
+
+.middle-main .bottom_product .box_product .image_product {
+    width: 95%;
+    margin: 0 2.5%;
+    padding: 20px 0;
+}
+
+.middle-main .bottom_product .box_product .image_product:hover img {
+    transform: translateY(-15px);
+    transition: 0.5s;
+}
+
+.middle-main .bottom_product .box_product .image_product img {
+    width: 100%;
+    height: 235px;
+}
+
+.middle-main .bottom_product .box_product .name_product {
+    width: 100%;
+    min-height: 60px;
+    padding: 10px 0;
+}
+
+.middle-main .bottom_product .box_product .name_product a {
+    text-decoration: none;
+    color: #333;
+    line-height: 20px;
+}
+
+.middle-main .bottom_product .box_product .name_product a:hover {
+    text-decoration: underline;
+}
+
+.middle-main .bottom_product .box_product .text_price {
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+.middle-main .bottom_product .box_product .text_price .price {
+    width: 100%;
+    font-size: 17px;
+    font-weight: bold;
+    color: #be1b2d;
+    padding-bottom: 8px;
+}
+
+.middle-main .bottom_product .box_product .text_price p {
+    font-size: 14px;
+}
+
+.middle-main .bottom_product .box_product .box_text {
+    width: 75%;
+    height: 30px;
+    background-color: #eee;
+    line-height: 30px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.middle-main .bottom_product .box_product .box_text p {
+    padding-left: 5px;
+    color: #be1b2d;
+}
+
+.middle-main .end_main {
+    width: 100%;
+    padding: 20px 0;
+    color: #333;
+    text-align: center;
+}
+
+.middle-main .end_main a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.middle-main .end_main a:hover p {
+    color: #be1b2d;
+    transition: 1s;
+}

@@ -57,6 +57,33 @@ class productController extends Controller
         }
         return view('frontend.products.ProductDetails', $this->v);
     }
+    public function AddCrart($id,Request $request){
+        session_start();
+        $product = new product();
+        $this->v['data'] = $product->loadOne($id);
+        if($this->v['data'] == null){
+           return redirect()->route('home');
+        }
+        $quantity = $request->quantity;
+        // Session::flash('cart',[$id]);
+        // dd(session('cart'));
+        if(isset($_SESSION['cart'][$id])){
+
+            $_SESSION['cart'][$id]['quantity'] += $quantity;
+            $_SESSION['cart'][$id]['price'] =  $this->v['data']->gia_san_pham - (($this->v['data']->gia_san_pham * $this->v['data']->gia_khuyen_mai) / 100);
+    
+            $_SESSION['tbcart'] = "bạn đãc cập nhật thành công vào giỏ hàng";
+        }else{
+           
+            $_SESSION['cart'][$id]['name_product'] = $this->v['data']->ten_san_pham;
+            $_SESSION['cart'][$id]['image_product'] = $this->v['data']->anh_san_pham;
+            $_SESSION['cart'][$id]['quantity'] = $quantity;
+            $_SESSION['cart'][$id]['price'] =  $this->v['data']->gia_san_pham - (($this->v['data']->gia_san_pham * $this->v['data']->gia_khuyen_mai) / 100);
+            $_SESSION['cart'][$id]['id_product'] = $id;
+            $_SESSION['tbcart'] = "bạn đã thêm thành công vào giỏ hàng";
+        }
+        return redirect()->route('ProductDetails',['id'=>$id]);
+    }
     public function showProductUser(Request $request){
         $search =  $request->input('search_name');
         $this->v['search'] = $search;

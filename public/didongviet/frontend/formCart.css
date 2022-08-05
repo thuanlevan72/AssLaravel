@@ -1,0 +1,122 @@
+.form-bottom {
+    width: 100%;
+}
+
+.form-bottom form {
+    width: 90%;
+    margin: 0 5%;
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    column-gap: 30px;
+}
+
+.form-bottom form .form {
+    width: 100%;
+}
+
+.form-bottom form .form h1 {
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0px 0 20px 0;
+}
+
+.form-bottom form .form .form-group {
+    width: 100%;
+}
+
+.form-bottom form .form .form-group input {
+    width: 100%;
+    padding: 8px 0;
+    border: 1.5px solid #ccc;
+    border-radius: 7px;
+    margin: 10px 0 10px;
+}
+
+.form-bottom form .form .form-group label {
+    width: 100%;
+    font-weight: 600;
+    color: rgb(82, 80, 80);
+}
+
+.form-bottom form .form .form-group small {
+    display: block;
+    width: 100%;
+    padding: 0 0 10px 0;
+    color: red;
+}
+
+.form-bottom form .tt-order {
+    width: 80%;
+    margin: 0 5% 0 15%;
+}
+
+.form-bottom form .tt-order .text-title {
+    width: 100%;
+    border-bottom: 4px solid #ddd;
+}
+
+.form-bottom form .tt-order .text-title p {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0px 0 20px 0;
+}
+
+.form-bottom form .tt-order table {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.form-bottom form .tt-order table thead tr th {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0 0 20px 0;
+}
+
+.form-bottom form .tt-order table tbody tr td {
+    text-align: left;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 0 15px 0;
+    border-bottom: 2px solid #ddd;
+}
+
+.form-bottom form .tt-order table tfoot tr th {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0 10px 0;
+}
+
+.form-bottom form .tt-order table .right-center {
+    text-align: right;
+}
+
+.form-bottom form .tt-order table .end {
+    border-bottom: 4px solid #ddd;
+}
+
+.form-bottom form .tt-order button {
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 5px;
+    border: none;
+    background-color: #d26e4b;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.form-bottom form .tt-order.text-tb {
+    width: 95%;
+    margin: 0 2.5%;
+}
+
+.form-bottom form .tt-order.text-tb p {
+    width: 100%;
+    color: #ccc;
+    font-size: 14px;
+}

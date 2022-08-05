@@ -38,11 +38,12 @@
                 @foreach($type_product as $item)
                 <button type="submit" name="search_name" value="{{$item->id}}">{{$item->ten_loai_san_pham}}</button>
                 @endforeach
-               
-                <button style="border: 1px solid red;" type="submit" name="" value="">Bạn đang tìm kiếm  ✕</button>
-               
+               @if(request('search_name') != null)
+               <a href=""><button style="border: 1px solid red;" type="submit" name="" value="">Bạn đang tìm kiếm {{request('search_name')}} ✕</button></a>
+               @endif
             </form>
         </div>
+      
         <div class="price-sp">
              <div class="texth1">
                 <p>Mức giá</p>
@@ -69,16 +70,17 @@
         <div class="bottom_product">
         @foreach($list as $item)
             <div class="box_product">
+                
             <div class="box_price">
                 @if($item->gia_khuyen_mai > 0 )
                     <p>Giảm {{number_format(($item->gia_san_pham * $item->gia_khuyen_mai) / 100)}} đ</p>
                 @endif
             </div>
                 <div class="image_product">
-                <a href="chitietsp?id_san_pham="> <img src="{{asset('image/image_product')}}/{{$item->anh_san_pham}}" alt=""></a>
+                <a href="{{route('ProductDetails',['id'=>$item->id])}}"> <img src="{{asset('image/image_product')}}/{{$item->anh_san_pham}}" alt=""></a>
                 </div>
                 <div class="name_product">
-                   <a href="chitietsp?id_san_pham="><p class="name-sale">{{$item->ten_san_pham}}</p></a>
+                   <a href="{{route('ProductDetails',['id'=>$item->id])}}"><p class="name-sale">{{$item->ten_san_pham}}</p></a>
                 </div>
                 <div class="text_price">
                     <p class="price"> {{number_format($item->gia_san_pham - (($item->gia_san_pham * $item->gia_khuyen_mai) / 100))}} ₫</p>

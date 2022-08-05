@@ -78,6 +78,7 @@ class user1 extends Model
         return $obj;
     }
     public function DeleteUser($id){
+        
         $deleted = DB::table('users')->where('id', '=', $id)->delete();
         return $deleted;
     }

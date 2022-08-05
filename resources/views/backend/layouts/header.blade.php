@@ -83,17 +83,17 @@ $objUser = \Illuminate\Support\Facades\Auth::user();
                     <li><a href="./thong_ke_order.php">doanh Thu</a></li>
                 </ul>
             </li>
-            <li ><a class="cha1" href="{{route('user')}}">Trang Frontend</a></li>
+            <li ><a class="cha1" href="/">Trang Frontend</a></li>
             <li class="cha6"><a class="cha1" href="{{route('user')}}">User</a>
             </li>
             <li class="cha2"><a class="cha1" >hàng hóa</a>
             <ul class="con3">
                     <li><a href="{{route('category')}}">Loại hàng hóa</a></li>
-                    <li><a href="{{route('product')}}">Hàng hóa</a></li>
+                    <li><a href="{{route('productAdmin')}}">Hàng hóa</a></li>
                     <li><a href="./comment_product.php">Bình luận theo hàng hóa</a></li>
                 </ul>
         </li>
-            <li class="cha3"><a class="cha1" href="./order.php">đơn hàng</a>
+            <li class="cha3"><a class="cha1" href="{{route('getOrder')}}">đơn hàng</a>
             <ul class="con4">
                     <!-- <li><a href="#">Đơn hàng đang chờ</a></li>
                     <li><a href="#">Đơn hàng đã hoàn thành</a></li> -->
@@ -110,7 +110,7 @@ $objUser = \Illuminate\Support\Facades\Auth::user();
             <li class="cha5"><a class="cha1">thay đổi image</a>
             <ul class="con6">
                     <li><a href="./info.php">Thay đổi chung về info trang</a></li>
-                    <li><a href="./banner.php">Thay đổi banner</a></li>
+                    <li><a href="{{route('showListBanner')}}">Thay đổi banner</a></li>
                     <li><a href="./slide.php">thay đổi slider</a></li>
                     <li><a href="#">thay đổi quảng cáo</a></li>
                 </ul></li>

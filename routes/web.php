@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\bannerController;
+use App\Http\Controllers\cartController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\homeController;
+use App\Http\Controllers\orderController;
 use App\Http\Controllers\productController;
 use App\Http\Controllers\userController;
 use Illuminate\Http\Request;
@@ -30,7 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/admin/delete/{id}',[userController::class, 'deleteUser'])->name('delUser');
 
       // chức năng sản phẩm
-    Route::get('/admin/product',[productController::class,'index'])->name('product');
+    Route::get('/admin/product',[productController::class,'index'])->name('productAdmin');
     Route::get('/admin/product/addProduct',[productController::class,'showAddProduct'])->name('addProduct');
     Route::post('/admin/product/addProduct',[productController::class,'addProduct'])->name('ResaddProduct');
     Route::get('/admin/product/dleProduct/{id}',[productController::class,'dleProduct'])->name('dleProduct');
@@ -59,9 +61,9 @@ Route::middleware(['auth'])->group(function () {
     
     // kết thúc chức năng loại sản phẩm 
   
-    Route::get('/admin/order', function () {
-        return view('backend.orders.listOrder');
-    })->name('addorder');
+    Route::get('/admin/order',[orderController::class,'getOrder'])->name('getOrder');
+    Route::get('/admin/order/ctOrder/{id}',[orderController::class,'getCTOrder'])->name('getCtOrder');
+    Route::post('/admin/order/ctOrder/updateStatus',[orderController::class,'updateStatus'])->name('updateStatus');
     route::get('/logout',[LoginController::class, 'getLogout'])->name('logout');
 });
 
@@ -70,6 +72,15 @@ Route::middleware(['auth'])->group(function () {
 Route::get('/',[homeController::class,'getHome'])->name('home');
 Route::get('/product',[productController::class,'showProductUser'])->name('product');
 Route::get('/product/ProductDetails/{id}',[productController::class,'ProductDetails'])->name('ProductDetails');
+Route::post('/product/ProductDetails/{id}',[productController::class,'AddCrart'])->name('AddCrart');
+Route::get('/cart',[cartController::class, 'cart'])->name('cart');
+Route::get('/cart/checkout',[cartController::class, 'Showcheckout'])->name('checkout');
+Route::post('/cart/checkout',[cartController::class, 'Getcheckout'])->name('Getcheckout');
+Route::get('/cart/checkout2',function(){
+    return view('frontend/cart/susessCart');
+})->name('checkout2');
+
+//phần login
 Route::get('/loginUser',[LoginController::class,'showFormLogin'])->name('loginFront');
 Route::post('/loginUser',[LoginController::class,'postLoginFront'])->name('ResloginFront');
 // url login

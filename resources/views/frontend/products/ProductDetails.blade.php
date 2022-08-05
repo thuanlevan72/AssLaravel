@@ -1,5 +1,4 @@
 @extends('frontend.layout.main')
-
 @section('content')
 <link rel="stylesheet" href="{{asset('didongviet/frontend/ProductDetails.css')}}">
 <style>
@@ -15,6 +14,11 @@
 <a href=""><img src="https://cdn.didongviet.vn/pub/media/mageplaza/bannerslider/banner/image/s/a/samsung-galaxy-wacth-4-didongviet.jpg" alt=""></a>
 </div>
 <main>
+    @php
+    session_start();
+    // unset($_SESSION['cart']);
+    @endphp
+{{-- {{dd($_SESSION['cart'])}} --}}
     <div class="left-main">
         <div class="top-main">
             <div class="left-product">
@@ -46,7 +50,8 @@
                     <p class="price-1">{{number_format($data->gia_san_pham - (($data->gia_san_pham * $data->gia_khuyen_mai) / 100))}} ₫</p>
                     <p class="price-2"><del>{{$data->gia_khuyen_mai > 0 ? number_format($data->gia_san_pham) : ''}} đ</del></p>
                 </div>
-                <form action="./option_cart.php" method="GET" class="datHang">
+                <form action="{{route('AddCrart',['id'=>request()->route('id')])}}" method="post" class="datHang">
+                    @csrf
                 <div class="buttons_added">
                 
                 <input onclick="cong()" type='button' value='-' />
@@ -58,7 +63,7 @@
                 <?php if(isset($_SESSION['tbcart'])){ ?>
                 <br>
                 <Script>
-                    alert('đã thêm sản phẩm <?php echo $_SESSION['sp']['name_product']; ?> thành công');
+                    alert('đã thêm sản phẩm thành công');
                 </Script>
                  <?php  unset($_SESSION['tbcart']);
                  } ?>

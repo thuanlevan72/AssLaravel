@@ -1,0 +1,225 @@
+main {
+    width: 1400px;
+    max-width: 100%;
+    margin: auto;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.top-cart {
+    width: 100%;
+}
+
+.top-cart .box-fun {
+    width: 70%;
+    margin: 0 15%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.top-cart .box-fun .text1 {
+    font-size: 25px;
+    color: rgb(133, 131, 131);
+    font-weight: bold;
+}
+
+.top-cart .box-fun .text1:hover {
+    text-decoration: underline;
+    color: black;
+}
+
+.order {
+    width: 95%;
+    margin: 0 2.5%;
+    display: grid;
+    grid-template-columns: 3fr 1.7fr;
+    column-gap: 20px;
+    padding: 10px 0 20px 0;
+}
+
+.order .left-order {
+    width: 95%;
+    padding-right: 5%;
+    border-right: 5px solid #eee;
+}
+
+.order .left-order table {
+    width: 95%;
+    margin-left: 5%;
+    border-collapse: collapse;
+}
+
+.order .left-order table tr th {
+    text-align: left;
+    border-bottom: 2px solid rgb(133, 131, 131);
+    line-height: 40px;
+    font-weight: bold;
+}
+
+.order .left-order table tr td img {
+    width: 50px;
+}
+
+.order .left-order table tr td {
+    /* vertical-align: middle; */
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding: 13px 0;
+}
+
+.order .left-order table tr .sp {
+    text-align: left;
+}
+
+.order .left-order table tr .sp i {
+    padding: 2px 5px;
+    border-radius: 30px;
+    border: 1px solid #333;
+    /* text-align: center; */
+}
+
+.order .left-order table tr .sp i:hover {
+    /* background-color: #ddd; */
+    color: red;
+}
+
+.order .left-order table tr .sp a {
+    font-weight: bold;
+}
+
+.order .left-order table tfoot tr td {
+    text-align: left;
+    border: none;
+}
+
+.order .left-order table tfoot tr td button {
+    width: 30%;
+    height: 35px;
+    background: none;
+    border: 2px solid #446084;
+    font-weight: 600;
+}
+
+.order .left-order table tfoot tr td button:hover {
+    background: #748dad;
+    transition: 0.5s;
+}
+
+.right-order {
+    width: 100%;
+    /* background: #333; */
+}
+
+.right-order .title-text {
+    width: 100%;
+    border-bottom: 3px solid rgb(114, 112, 112);
+}
+
+.right-order .title-text h1 {
+    font-size: 20px;
+    padding: 20px 0;
+    font-weight: bold;
+}
+
+.right-order .tam-tinh {
+    padding: 30px 0 20px 0;
+    border-bottom: 3px solid rgb(114, 112, 112);
+}
+
+.right-order .tam-tinh p {
+    padding: 0 0 20px 0;
+    font-weight: bold;
+}
+
+.right-order .thanh-toan {
+    width: 100%;
+    padding: 20px 0;
+}
+
+.right-order .thanh-toan button {
+    width: 100%;
+    height: 45px;
+    border-radius: 5px;
+    border: none;
+    background-color: #d26e4b;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.right-order .thanh-toan button:hover {
+    outline: none;
+    opacity: 1;
+    color: #fff;
+    -webkit-box-shadow: inset 0 0 0 100px rgb(0 0 0 / 20%);
+    box-shadow: inset 0 0 0 100px rgb(0 0 0 / 20%);
+}
+
+
+/*  */
+
+
+/* phần form hoàn tất đơn */
+
+
+/*  */
+
+.form-bottom {
+    width: 100%;
+}
+
+.form-bottom form {
+    width: 90%;
+    margin: 0 5%;
+}
+
+.order .right-order table {
+    width: 100%;
+}
+
+.order .right-order table thead tr th {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 8px 0 10px 0;
+}
+
+.order .right-order table tbody tr td {
+    font-weight: bold;
+    font-size: 17px;
+    padding: 12px 0 12px 0;
+}
+
+.order .right-order table thead tr {
+    border-bottom: 2px solid #333;
+}
+
+.order .right-order table tfoot tr {
+    border-top: 2px solid #333;
+}
+
+.order .right-order table tfoot tr button {
+    margin-top: 11px;
+    width: 98%;
+    margin: 15px 1%;
+    background-color: #D26E4B;
+    height: 40px;
+    border-radius: 7px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.order .right-order table .bold {
+    font-weight: bold;
+}
+
+.order .right-order table .text-left {
+    text-align: left;
+}
+
+.order .right-order table .text-center {
+    text-align: right;
+}

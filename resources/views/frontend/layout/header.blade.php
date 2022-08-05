@@ -1,6 +1,5 @@
 @php
 $objUser = \Illuminate\Support\Facades\Auth::user();
-
 @endphp
  
 <!DOCTYPE html>
@@ -70,7 +69,7 @@ $objUser = \Illuminate\Support\Facades\Auth::user();
             </style>
             <ul class="nav">
                 <li class="nav-cc"><a href="{{route('home')}}">Trang chủ</a></li>
-                <li class="nav-sp"><a href="sanpham">sản phẩm</a></li>
+                <li class="nav-sp"><a href="{{route('product')}}">sản phẩm</a></li>
                 <li class="nav-lsp"><a href="loai_san_pham">loại sản phẩm</a></li>
                 <li class="nav-tt"><a href="tintuc">tin tức</a></li>
                 <li class="nav-lh"><a href="lienhe">liên hệ</a></li>
@@ -81,7 +80,7 @@ $objUser = \Illuminate\Support\Facades\Auth::user();
                @endif
             </ul>
             <div class="cart">
-            <a href="./cart.php"><button>Giỏ hàng<div class="div-3">
+            <a href="{{route('cart')}}"><button>Giỏ hàng<div class="div-3">
                 <i class="fas fa-shopping-bag"></i>
                 </div></button></a>
             </div>

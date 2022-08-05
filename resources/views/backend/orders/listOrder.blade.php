@@ -31,13 +31,13 @@
           </select>
         </div>
     </form>
-    <?php if(isset($_GET['qt'])){$lever = $_GET['qt'];} ?>
+   
     </div>
         <table class="fixed">
            <thead>
            <tr>
                 <th>ID</th>
-                <th>Tên khách hàng</th>
+                <th>Mã hóa đơn</th>
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Địa chỉ giao hàng</th>
@@ -48,31 +48,35 @@
             </tr>
            </thead>
             <tbody>
+                @foreach($list as $item)
             <tr>
-                <td>1</td>
-                <td>Lê Quang linh</td>
-                <td>tlinh@gmail.com</td>
-                <td>987612345</td>
-                <td>đéo biết</td>
-                <td>không bé ơi</td>
-                <td style="color:;"><p style="color: red;background-color:white;" class="qt">đã xem</p></td>
-                <td style="width: 30px;"><a><button style="background-color: red;color: white;" onclick="delete_user()" class="delete">Xóa</button></a></td>
-                <td><a href="./ct_order.php?id="><button class="ct">Xem Ngay</button></a></td>
+                <td>{{$loop->index + 1}}</td>
+                <td>{{$item->ma_hoa_don}}</td>
+                <td>{{$item->email}}</td>
+                <td>{{$item->phone}}</td>
+                <td style="width: 280px;">{{$item->dia_chi}}</td>
+                <td>{{$item->created_at}}</td>
+                <td style="color:;"><p style="color: red;background-color:white;" class="{{$item->trang_thai == 1 ?'qt': ''}}">{{$item->trang_thai == 1 ?'đã xác nhận': ''}}</p></td>
+                <td  style="width: 40px;"><a><button style="background-color: red;color: white;" onclick="delete_user()" class="delete">Xóa</button></a></td>
+                <td><a href="{{route('getCtOrder',['id'=>$item->id])}}"><button class="ct">Xem Ngay</button></a></td>
             </tr>
-           
+           @endforeach
         
-          
+          @if(count($list) <= 0)
             <tr>
                 <td colspan="6">không có dữ liệu nào tồn tại</td>
                 <td colspan="3"><a href="./user.php"><button>reset</button></a></td>
             </tr>
-        
+        @endif
             <tfoot>
                 <!-- <tr>
                      <td colspan="7"><a href="./resgister.php"><button style="height: 30px;">Thêm mới user</button></a></td> 
                 </tr> -->
             </tfoot>
         </table>
+        <div class="text-center">
+            {{ $list->links() }}
+        </div>
     </div>
 </main>
 @endsection

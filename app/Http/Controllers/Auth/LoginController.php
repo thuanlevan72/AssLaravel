@@ -70,6 +70,8 @@ class LoginController extends Controller
     }
     public function getLogout(){
         Auth::logout();
+        session_start();
+        unset($_SESSION['cart']);
         return redirect('/login');
     }
 }
